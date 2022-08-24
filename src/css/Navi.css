@@ -1,0 +1,41 @@
+.nav-link{
+    display: inline;
+    font-size: 14px!important;
+    text-decoration: none;
+}
+.nav-link:hover{
+    text-decoration: none;
+}
+#navbar-search-and-links{
+    width: 89%;
+}
+
+.btn-login{
+    font-size: 14px;
+    color: #1C1D1F;
+    font-weight: bold;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    background-color: white;
+    border: 1px solid;
+    margin-right: 1rem;
+    text-decoration: none;    
+}
+
+.btn-login:hover{
+    background-color: rgb(240, 241, 243);
+    text-decoration: none;
+    color: #000;
+}
+
+.btn-register{
+    background-color: black;
+    color:white!important;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    text-decoration: none;
+
+}
+.btn-register:hover{
+    text-decoration: none;
+}

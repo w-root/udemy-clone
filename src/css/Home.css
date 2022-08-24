@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.component-jumbotron{
+    height: 400px;
+    background-image: url('../Images/b8f46419-eca3-44c1-8ba0-ed2ca89f8884.jpg');
+}
+.component-jumbotron-card{
+    width: 28rem;
+    position: relative;
+    left: 3rem;
+    top: 4rem;
+    background-color: white;
+    padding: 1.5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+.component-jumbotron-card-title{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+.component-title{
+    font-size: 32px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+ }
+.tab-pane{
+    border: 1px solid rgba(112, 112, 112, 0.156);
+    padding: 1rem;
+}
+
+.nav-tabs .nav-link{
+    border:0!important;
+    font-weight: bold;
+    color: black;
+}
+
+#category-image{
+    width: 300px;
+    height: 300px;
+}
+.card{
+   border: 0!important;
+   margin-bottom: 1.4rem;
+}
+.category-text{
+    margin-top: 0.6rem;
+    font-weight: bold;
+}
+.categories{
+    padding-top:1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.category-list-item{
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+.student-count{
+    display: block;
+    --bs-text-opacity: 1;
+    color: #6c757d!important;
+    font-size: 14px;
+}
+.category-link{
+    text-decoration: underline;
+    color: #401B9C;
+    font-weight: bold;
+}
+.non-student-cta{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    max-width: 60%;
+    margin-left: 4rem;
+}
+.non-student-cta-heading{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+.non-student-cta-text{
+    font-size: 19px;
+    line-height: 26px;   
+}
+
+.btn-design-white{
+    font-size: 14px;
+    color: #1C1D1F;
+    font-weight: bold;
+    padding: 0.6rem 1rem 0.6rem 1rem;
+    background-color: white;
+    border: 1px solid;
+
+}
+
+.btn-design-white:hover{
+    background-color: rgb(240, 241, 243);
+}
+
+.btn-design-black{
+    background-color: black;
+    color:white;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0.6rem 1rem 0.6rem 1rem;
+    max-width: 65%;
+    margin-top: 2rem;
+}

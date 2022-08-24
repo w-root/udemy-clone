@@ -1,0 +1,17 @@
+#instructor{
+    font-size: 12px;
+}
+#card-image{
+    border-radius: 0;
+}
+.card-body{
+    padding: 10px 0 0 0!important;
+}
+p{
+    margin-bottom: 0;
+}
+.course-rating{
+    color:#b4690e;
+    margin-right: 0.5rem;
+    font-weight: bold;
+}
