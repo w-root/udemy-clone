@@ -15,3 +15,11 @@ p{
     margin-right: 0.5rem;
     font-weight: bold;
 }
+.course-link{
+    text-decoration: none;
+    color: black;
+}
+.course-link:hover{
+    text-decoration: none;
+    color: black;
+}

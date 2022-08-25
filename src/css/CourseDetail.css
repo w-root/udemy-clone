@@ -1,0 +1,139 @@
+.container {
+    position: relative;
+}
+.course-introduction {
+    height: 12rem;
+}
+.course-detail-inner-main-container {
+    padding: 2rem;
+    margin-left: 4.8rem;
+    max-width: 50rem;
+}
+.course-sidebar {
+    background-color: white;
+    border: 1px solid white;
+    width: 21rem;
+    color: black;
+    position: absolute;
+    right: 6rem;
+    top: 2rem;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 8%);
+    z-index: 1;
+}
+.course-content-section {
+    padding: 1.4rem;
+}
+.course-rating-point-students{
+    display: flex;
+    font-size: 14px;
+    color: white;
+}
+.course-point{
+    text-decoration: underline;
+    color: #CEC0FC;
+    margin-left: 0.4rem;
+}
+.course-students{
+    margin-left: 0.6rem;
+}
+.text-white{
+    font-size: 14px;
+}
+.btn-add-to-cart {
+    color: white;
+    background-color: #a435f0;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0.6rem;
+    border: 0;
+    margin-top: 1rem;
+    margin-bottom: 0.7rem;
+}
+.btn-add-to-cart:hover {
+    background-color: #a535f0b4;
+}
+.btn-register-link {
+    color: black;
+    background-color: white;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0.6rem;
+    border: 1px solid;
+    margin-bottom: 1rem;
+}
+.btn-register-link:hover {
+    background-color: rgba(240, 241, 243, 0.852);
+}
+.course-content-list-item {
+    font-size: 14px;
+    margin-bottom: 0.4rem;
+}
+.course-content-list-item span {
+    margin-left: 0.6rem;
+}
+.course-content-buttons {
+    display: flex;
+}
+.course-content-button {
+    font-size: 14px;
+    text-decoration: underline;
+    text-underline-offset: 0.4rem;
+    background-color: white;
+    border: 0;
+    font-weight: bold;
+}
+.course-detail-section {
+    max-width: 52rem;
+    margin-top: 2rem;
+    padding: 1rem 5rem 1rem 1rem;
+    margin-left: 4.6rem;
+}
+.component-what-you-will-learn {
+    border: 1px solid #d1d7dc;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+.what-you-will-learn-list {
+    list-style: none;
+    font-size: 14px;
+    padding-left: 0;
+}
+.what-you-will-learn-list-item {
+    margin: 0.9rem 0 0.2rem 0.3rem; 
+    display: flex;
+}
+.what-you-will-learn-list-item span{
+    display: block;
+    margin-right: 0.6rem;
+}
+.accordion-button  {
+    background-color: #f7f9fa!important;
+    font-size: 16px!important;
+    font-weight: bold!important;
+}
+.accordion-button:focus{
+    border-color: none!important;
+    box-shadow: none!important;
+}
+.username-and-comment {
+    font-size: 14px;
+}
+.btn-feedback {
+    border: 1px solid black;
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin-right: 0.5rem;
+}
+.username {
+    margin-bottom: -8px;
+}
+.course-stars-percent-value{
+    text-decoration: underline;
+    color: #5624d0;
+    font-size: 14px;
+    margin-left: 0.5rem;
+}

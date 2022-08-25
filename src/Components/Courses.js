@@ -7,23 +7,24 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Card from 'react-bootstrap/Card';
 import logoub from '../Images/logo-ub.svg'
+
 const Courses = () => {
     const [courses, setCourses] = useState([
         {
             id: 1, title: "(40 + Saat) Python | Sıfırdan İleri Seviye Programlama(2020)", image: "https://img-c.udemycdn.com/course/240x135/1235124_7c5f_6.jpg",
-            instructor: "Mustafa Murat Coşkun", rating: 4.2, price: 466.99
+            instructor: "Mustafa Murat Coşkun", rating: 4.2, price: 466.99, slug: "python-sifirdan-ileri-seviye-programlama(2020)"
         }, {
             id: 12, title: "Python 3: A' dan Z' ye Programlama", image: "https://img-c.udemycdn.com/course/240x135/1235124_7c5f_6.jpg",
-            instructor: "Volkan Taşçı", rating: 4.6, price: 269.99
+            instructor: "Volkan Taşçı", rating: 4.6, price: 269.99, slug: "python3-a-dan-z-ye-programlama-"
         }, {
             id: 13, title: "Python ile Makine Öğrenmesi", image: "https://img-c.udemycdn.com/course/240x135/1235124_7c5f_6.jpg",
-            instructor: "Şadi Evren Şeker", rating: 4.4, price: 429.99
+            instructor: "Şadi Evren Şeker", rating: 4.4, price: 429.99, slug: "python-ile-makine-ogrenmesi-"
         }, {
             id: 14, title: "Python Programlama Eğitimi A-Z™ - (71.000+ Öğrenci)", image: "https://img-c.udemycdn.com/course/240x135/1235124_7c5f_6.jpg",
-            instructor: "Mehmet Tek", rating: 4.4, price: 249.99
+            instructor: "Mehmet Tek", rating: 4.4, price: 249.99, slug: "python-programlama-egitimi-A-"
         }, {
             id: 15, title: "Python: Yapay Zeka için Python Programlama (1)", image: "https://img-c.udemycdn.com/course/240x135/1235124_7c5f_6.jpg",
-            instructor: "Mustafa Murat Coşkun", rating: 4.4, price: 649.99
+            instructor: "Mustafa Murat Coşkun", rating: 4.4, price: 649.99, slug: "python-yapay-zeka-icin-python-programlama-(1)"
         }
     ])
 

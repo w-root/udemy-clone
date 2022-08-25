@@ -2,6 +2,8 @@
     display: inline;
     font-size: 14px!important;
     text-decoration: none;
+    color: #1c1d1f!important;
+
 }
 .nav-link:hover{
     text-decoration: none;
