@@ -10,6 +10,7 @@ import logoub from '../Images/logo-ub.svg'
 import Courses from '../Components/Courses';
 import Categories from '../Components/Categories';
 
+
 const Home = () => {
     return (
         <div className='main-content'>
@@ -22,6 +23,8 @@ const Home = () => {
                     </div>
                 </div>
             </Container >
+
+
 
             <Courses> </Courses>
 

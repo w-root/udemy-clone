@@ -26,6 +26,7 @@ const Course = ({ course }) => {
                 <div className="d-flex">
                     <span className="course-rating">{course.rating}</span>
                     <ReactStars edit={false} value={course.rating} />
+                    <span className="text-muted ms-2">({course.students.length})</span>
                 </div>
                 <Card.Text className="fs-6 fw-bold">₺{course.price}</Card.Text>
             </Card.Body>

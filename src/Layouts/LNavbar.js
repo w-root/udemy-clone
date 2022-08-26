@@ -15,7 +15,7 @@ const LNavbar = () => {
     return (
         <Navbar bg="white" className='shadow p-3  bg-body rounded' expand="lg" >
             <Container fluid >
-                <Navbar.Brand href="#">
+                <Navbar.Brand href="/">
                     <Image src={logo} width={91} height={34} alt='udemy-logo' />
                 </Navbar.Brand>
 

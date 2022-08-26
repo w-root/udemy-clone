@@ -99,10 +99,15 @@
     list-style: none;
     font-size: 14px;
     padding-left: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content : space-between;
 }
 .what-you-will-learn-list-item {
     margin: 0.9rem 0 0.2rem 0.3rem; 
     display: flex;
+    width: 45%;
 }
 .what-you-will-learn-list-item span{
     display: block;
