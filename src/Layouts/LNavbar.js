@@ -5,10 +5,11 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavLink from 'react-bootstrap/NavLink';
 import { Col, Image, Row } from 'react-bootstrap';
 import { AiOutlineSearch } from "react-icons/ai";
 import '../css/Navi.css';
+import { NavLink } from 'react-router-dom';
+import Cookies from 'js-cookie'
 
 
 const LNavbar = () => {
@@ -21,13 +22,13 @@ const LNavbar = () => {
 
                 <Navbar.Collapse id="navbarScroll">
                     <Nav id='navbar-search-and-links'>
-                        <NavLink>
+                        <NavLink className='nav-link' to={""}>
                             Kategoriler
                         </NavLink>
                         <Form className='w-75' >
                             <div className='bg-light d-flex py-1 border border-1 border-dark rounded-pill'  >
                                 <Button
-                                    className=' rounded-pill ' variant="light"> <AiOutlineSearch></AiOutlineSearch> </Button>
+                                    className='rounded-pill' variant="light"> <AiOutlineSearch></AiOutlineSearch> </Button>
                                 <Form.Control
                                     style={{ borderTopRightRadius: "50rem", borderBottomRightRadius: "50rem" }}
                                     height={46}
@@ -39,19 +40,30 @@ const LNavbar = () => {
                                 />
                             </div>
                         </Form>
-                        <NavLink href="#action2">Udemy Business</NavLink>
-                        <NavLink href="#" >
-                            Udemy'de Eğitim Verin
-                        </NavLink>
+                        <NavLink className='nav-link' to={""}>Udemy Business</NavLink>
+                        <NavLink className='nav-link' to={""}>
+                            Udemy'de Eğitim Verin</NavLink>
                     </Nav>
 
                     <Nav id='navbar-buttons'>
-                        <a className='btn-login' href="#" >
-                            Oturum Aç
-                        </a>
-                        <a className='btn-register' href="#" >
-                            Kaydol
-                        </a>
+                        {
+                            Cookies.get("sessionid") == null ? <div>
+                                <NavLink className='navlink-login' to={"join/login"}>
+                                    Oturum Aç
+                                </NavLink>
+                                <NavLink className='navlink-register' to={"join/signup"} >
+                                    Kaydol
+                                </NavLink>
+                            </div> :
+                                <div >
+                                    <NavLink className='navlink-login' to={"/"}>
+                                        Logout
+                                    </NavLink>
+
+                                </div>
+
+
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>

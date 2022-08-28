@@ -1,8 +1,9 @@
 import './App.css';
 import LNavbar from './Layouts/LNavbar';
 import LFooter from './Layouts/LFooter';
-import Routers from './Router/Routers';
+
 import { Buffer } from 'buffer';
+import Routers from './Router/Routers';
 
 function App() {
   global.Buffer = Buffer;

@@ -1,0 +1,35 @@
+.btn-login-buttons{
+    display: flex;
+    flex-direction: column;
+}
+.btn-login{
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0.6rem;
+    text-align: start;
+    border: 1px solid #d1d7dc ;
+    background-color: #fff;
+    color: #1c1d1f;
+    box-shadow: 0 2px 2px 0 rgb(28 29 31 / 24%), 0 0 2px 0 rgb(28 29 31 / 12%);
+    margin-top: 0.6rem;
+    margin-bottom: 0.2rem;
+    width: 100%;
+}
+.btn-login:hover{
+    background-color: rgba(223, 223, 223, 0.728);
+}
+
+.btn-signin {
+    color: white;
+    background-color: #a435f0;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0.6rem;
+    border: 0;
+    margin-top: 1rem;
+    margin-bottom: 0.7rem;
+}
+.btn-signin:hover {
+    background-color: #a535f0b4;
+}

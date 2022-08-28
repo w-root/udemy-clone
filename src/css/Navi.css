@@ -12,7 +12,7 @@
     width: 89%;
 }
 
-.btn-login{
+.navlink-login{
     font-size: 14px;
     color: #1C1D1F;
     font-weight: bold;
@@ -23,13 +23,13 @@
     text-decoration: none;    
 }
 
-.btn-login:hover{
+.navlink-login:hover{
     background-color: rgb(240, 241, 243);
     text-decoration: none;
     color: #000;
 }
 
-.btn-register{
+.navlink-register{
     background-color: black;
     color:white!important;
     font-weight: bold;
@@ -38,6 +38,6 @@
     text-decoration: none;
 
 }
-.btn-register:hover{
+.navlink-register:hover{
     text-decoration: none;
 }
