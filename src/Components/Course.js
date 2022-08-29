@@ -20,7 +20,7 @@ const Course = ({ course }) => {
                     </Link>
 
                 </Card.Title>
-                <Card.Text id="instructor" className="text-muted">
+                <Card.Text id="instructor" className="text-muted mb-0">
                     {course.instructor}
                 </Card.Text>
                 <div className="d-flex">

@@ -10,9 +10,21 @@ import { AiOutlineSearch } from "react-icons/ai";
 import '../css/Navi.css';
 import { NavLink } from 'react-router-dom';
 import Cookies from 'js-cookie'
+import { UserLogout } from '../Services/UserService';
 
 
 const LNavbar = () => {
+    const logout = async () => {
+        try {
+            const response = await UserLogout()
+            Cookies.remove("sessionid")
+            window.location.href = "join/login"
+            console.log(response)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <Navbar bg="white" className='shadow p-3  bg-body rounded' expand="lg" >
             <Container fluid >
@@ -55,7 +67,7 @@ const LNavbar = () => {
                                     Kaydol
                                 </NavLink>
                             </div> :
-                                <div >
+                                <div onClick={logout}>
                                     <NavLink className='navlink-login' to={"/"}>
                                         Logout
                                     </NavLink>
