@@ -1,15 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { Button, Col, Container, Image, Row } from 'react-bootstrap';
-import Carousel from 'react-bootstrap/Carousel';
+import React from 'react'
+import { Col, Container, Image, Row } from 'react-bootstrap';
 import '../css/Home.css'
-import Course from '../Components/Course';
-import Tab from 'react-bootstrap/Tab';
-import Tabs from 'react-bootstrap/Tabs';
-import Card from 'react-bootstrap/Card';
 import logoub from '../Images/logo-ub.svg'
 import Courses from '../Components/Courses';
 import Categories from '../Components/Categories';
-
 
 const Home = () => {
     return (
@@ -24,10 +18,7 @@ const Home = () => {
                 </div>
             </Container >
 
-
-
             <Courses> </Courses>
-
             <Categories></Categories>
 
             <Container>

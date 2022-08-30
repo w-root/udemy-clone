@@ -1,17 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import logo from '../Images/logo-udemy.svg';
 import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Col, Image, Row } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 import { AiOutlineSearch } from "react-icons/ai";
 import '../css/Navi.css';
 import { NavLink } from 'react-router-dom';
 import Cookies from 'js-cookie'
 import { UserLogout } from '../Services/UserService';
-
 
 const LNavbar = () => {
     const logout = async () => {
@@ -27,17 +25,18 @@ const LNavbar = () => {
 
     return (
         <Navbar bg="white" className='shadow p-3  bg-body rounded' expand="lg" >
-            <Container fluid >
-                <Navbar.Brand href="/">
-                    <Image src={logo} width={91} height={34} alt='udemy-logo' />
-                </Navbar.Brand>
+            <Navbar.Brand href="/">
+                <Image src={logo} width={91} height={34} alt='udemy-logo' />
+            </Navbar.Brand>
 
-                <Navbar.Collapse id="navbarScroll">
-                    <Nav id='navbar-search-and-links'>
+            <Navbar.Collapse id="navbarScroll">
+                <Nav id='navbar-search-and-links'>
+
+                    <div className='d-flex w-100 me-4'>
                         <NavLink className='nav-link' to={""}>
                             Kategoriler
                         </NavLink>
-                        <Form className='w-75' >
+                        <Form className='w-100' >
                             <div className='bg-light d-flex py-1 border border-1 border-dark rounded-pill'  >
                                 <Button
                                     className='rounded-pill' variant="light"> <AiOutlineSearch></AiOutlineSearch> </Button>
@@ -52,35 +51,46 @@ const LNavbar = () => {
                                 />
                             </div>
                         </Form>
+                    </div>
+                    <div style={{ width: "10rem" }}>
                         <NavLink className='nav-link' to={""}>Udemy Business</NavLink>
-                        <NavLink className='nav-link' to={""}>
-                            Udemy'de Eğitim Verin</NavLink>
-                    </Nav>
-
-                    <Nav id='navbar-buttons'>
-                        {
-                            Cookies.get("sessionid") == null ? <div>
-                                <NavLink className='navlink-login' to={"join/login"}>
-                                    Oturum Aç
+                    </div>
+                    {
+                        Cookies.get("sessionid") == null ?
+                            <div >
+                                <NavLink className='nav-link' to={""}>
+                                    Udemy'de Eğitim Verin</NavLink>
+                            </div>
+                            :
+                            <div className='d-flex' style={{ width: "20rem" }}>
+                                <NavLink className='nav-link' to={"instructor/courses"}>
+                                    Eğitmen
                                 </NavLink>
-                                <NavLink className='navlink-register' to={"join/signup"} >
-                                    Kaydol
+                                <NavLink className='nav-link' to={"my-learning-content"}>
+                                    Öğrenim İçeriğim
                                 </NavLink>
-                            </div> :
-                                <div onClick={logout}>
-                                    <NavLink className='navlink-login' to={"/"}>
-                                        Logout
-                                    </NavLink>
-
-                                </div>
-
-
-                        }
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
+                            </div>
+                    }
+                </Nav>
+            </Navbar.Collapse>
+            <Nav id='navbar-buttons'>
+                {
+                    Cookies.get("sessionid") == null ? <div>
+                        <NavLink className='navlink-login' to={"join/login"}>
+                            Oturum Aç
+                        </NavLink>
+                        <NavLink className='navlink-register' to={"join/signup"} >
+                            Kaydol
+                        </NavLink>
+                    </div> :
+                        <div className='ms-5' onClick={logout}>
+                            <NavLink className='navlink-login' to={"/"}>
+                                Logout
+                            </NavLink>
+                        </div>
+                }
+            </Nav>
         </Navbar >
-
     )
 }
 

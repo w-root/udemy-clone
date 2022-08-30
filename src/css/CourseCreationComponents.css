@@ -1,0 +1,5 @@
+.app-component-content{
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 16%);
+    width: 100%;
+}

@@ -17,7 +17,6 @@ const SigninSchema = Yup.object().shape({
 
 const Login = () => {
     const UserLogin = async (user) => {
-        console.log(user)
         try {
             const response = await UserSignin(user)
             Cookies.set('sessionid', response.data.key)
@@ -32,7 +31,6 @@ const Login = () => {
             password: '',
         },
         onSubmit: (values) => {
-
             UserLogin(values)
         },
         validationSchema: SigninSchema
