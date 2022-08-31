@@ -1,0 +1,61 @@
+.minimal-header{
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
+    display: flex;
+    justify-content: space-between!important;
+    --bs-navbar-padding-y:0!important;
+}
+.minimal-header-image{
+    border-right:1px solid rgba(128, 128, 128, 0.676) ;
+}
+.course-title-answer{
+    height: 2.7rem;
+    width: 100%;
+    border: 1px solid black!important;
+    border-radius: 0!important;
+    box-shadow: none!important;
+}
+.course-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.full-page-footer{
+    height: 82px;
+    margin-top: 22rem;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.course-button{
+    font-size: 16px;
+    font-weight: bold;
+    height: 50%;
+    text-align: start;
+    border: 1px solid #d1d7dc ;
+    background-color: #fff;
+    color: #1c1d1f;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-align: center;
+    width: 10rem;
+}
+.course-cancel-button{
+    color: white;
+    background-color: #dc3545;
+}
+.course-cancel-button:hover{
+    background-color: #e44252c5!important;
+}
+.course-create-button{
+    color: white;
+    background-color: #1c1d1f;
+}
+.course-create-button:hover{
+    background-color: #000000!important;
+}
+

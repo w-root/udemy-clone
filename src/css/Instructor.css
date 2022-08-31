@@ -50,17 +50,22 @@
     text-decoration: none;
     color: white;
 }
+.instructor-dashboard-resource-row{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+}
 .instructor-dashboard-resource{
     padding: 2.4rem!important;
     box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
     border: 1px solid #d1d7dc;
     margin-top: 1rem;
     margin-bottom: 1.8rem;
-    margin-right: 1rem;
 }
 .resource-unit{
     text-decoration: none;
-
 }
 .resource-unit:hover{
     text-decoration: none;
@@ -70,9 +75,6 @@
     font-weight: bold;
     text-decoration: underline;
     color: #5624D0;
-}
-.row{
-    flex-wrap: nowrap!important;
 }
 .resource-unit-description{
     margin-top: 1rem;

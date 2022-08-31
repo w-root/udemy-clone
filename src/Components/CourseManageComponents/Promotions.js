@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../css/CourseManageComponents.css'
 
 const Promotions = () => {
     return (

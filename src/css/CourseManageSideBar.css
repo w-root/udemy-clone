@@ -1,3 +1,6 @@
+.side-bar{
+    padding: 3rem 0rem 2rem 6rem;
+}
 .list-unstyled{
     padding-left: 0!important;
 }
@@ -5,8 +8,14 @@
     font-size: 16px;
     font-weight: bold;
 }
+.side-nav-section{
+    margin-top: 2rem; 
+}
 .side-nav-item{
-    padding: .8rem 0.9rem;
+    padding: 0.7rem 0.4rem;
+}
+.side-nav-item:hover{
+    background-color: #f7f9fa;
 }
 .side-nav-item a{
     text-decoration: none;

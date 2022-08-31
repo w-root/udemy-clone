@@ -1,11 +1,11 @@
 import React from 'react'
 import { BsCircle } from 'react-icons/bs'
 import { Link } from 'react-router-dom';
-import '../../css/CourseCreationSideBar.css'
+import '../../css/CourseManageSideBar.css'
 
-const CreationCourseSideBar = () => {
+const CourseManageSideBar = () => {
     return (
-        <div>
+        <div className='side-bar'>
             <ul className='list-unstyled'>
                 <li className='side-nav-section'>
                     <div className='side-nav-section-header'>
@@ -82,12 +82,7 @@ const CreationCourseSideBar = () => {
                                 <span>Promosyonlar</span>
                             </Link>
                         </li>
-                        <li className='side-nav-item'>
-                            <Link to={"/instructor/course/create/messages"}>
-                                <span> <BsCircle />  </span>
-                                <span>Kurs Mesajları</span>
-                            </Link>
-                        </li>
+
                     </ul>
                 </li>
             </ul>
@@ -97,4 +92,4 @@ const CreationCourseSideBar = () => {
     )
 }
 
-export default CreationCourseSideBar
+export default CourseManageSideBar

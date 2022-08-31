@@ -15,7 +15,7 @@ import Button from 'react-bootstrap/Button';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { FetchCourseDetail } from "../Services/CourseService";
 import { useParams } from "react-router-dom";
-import ReactHtmlParser from "react-html-parser"
+import parse from "html-react-parser"
 
 const CourseDetail = () => {
     const { slug } = useParams()
@@ -196,8 +196,7 @@ const CourseDetail = () => {
                         <div className="component-course-description my-5">
                             <h3 className="fs-4 fw-bold mb-3">Açıklama</h3>
                             <div className="course-description fs-6">
-                                {/* {coursess == null ? <div> </div> : <div>{ReactHtmlParser(coursess.description)} </div>} */}
-                                {ReactHtmlParser(course.description)}
+                                {parse(course.description)}
                             </div>
                         </div>
 

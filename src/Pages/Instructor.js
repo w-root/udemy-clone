@@ -84,7 +84,7 @@ const Instructor = () => {
                             Kurs Oluşturma Adımına Geç
                         </div>
                         <div>
-                            <Link to={"/instructor/course/create/goals"} className='create-course-button'>
+                            <Link to={"/instructor/course/create/"} className='create-course-button'>
                                 Kursunuzu Olşuturun
 
                             </Link>
@@ -112,8 +112,8 @@ const Instructor = () => {
                         </Col>
                     </Row>
 
-                    <Row className='justify-content-between' >
-                        <Col md={6} className='instructor-dashboard-resource'>
+                    <div className='instructor-dashboard-resource-row' >
+                        <Col md={6} className='instructor-dashboard-resource me-4'>
                             <Row>
                                 <Col md={5} >
                                     <Image src="https://s.udemycdn.com/instructor/dashboard/video-creation.jpg" height={210} />
@@ -146,7 +146,7 @@ const Instructor = () => {
                                 </Col>
                             </Row>
                         </Col>
-                    </Row>
+                    </div>
 
                     <Row className='instructor-dashboard-resource'>
                         <Col className='text-center' md={6}>
