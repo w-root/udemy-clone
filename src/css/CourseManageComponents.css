@@ -81,7 +81,7 @@
     display: flex;
     justify-content: flex-end;
 }
-.course-create-update-button {
+.course-update-button {
     color: white;
     background-color: #a435f0;
     width: 15rem;
@@ -92,7 +92,7 @@
     text-decoration: none;
     display: inline!important;
 }
-.course-create-update-button:hover {
+.course-update-button:hover {
     background-color: #a535f0b4;
     text-decoration: none;
     color: white;

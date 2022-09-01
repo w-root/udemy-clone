@@ -131,12 +131,13 @@ const CourseDetail = () => {
                             </div>
                             <div>
                                 <ul className="what-you-will-learn-list">
-                                    {course.whatYouWillLearn.split(".").map(i => {
+                                    {course.whatYouWillLearn.data.map(i => {
                                         return <li key={i} className="what-you-will-learn-list-item" >
                                             <span><AiOutlineCheck /></span>
                                             {i}
                                         </li>
                                     })}
+
                                 </ul>
                             </div>
                         </div>
@@ -196,7 +197,7 @@ const CourseDetail = () => {
                         <div className="component-course-description my-5">
                             <h3 className="fs-4 fw-bold mb-3">Açıklama</h3>
                             <div className="course-description fs-6">
-                                {parse(course.description)}
+                                {course.description && parse(course.description)}
                             </div>
                         </div>
 

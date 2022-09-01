@@ -18,7 +18,6 @@
     font-size: 16px;
     font-weight: bold;
     width: 100%;
-
 }
 .instructor-help-list-item:hover{
     background-color: rgba(255, 255, 255, 0.553);
@@ -31,9 +30,11 @@
     color: white;
     padding: 0.5rem;
 }
+.instructor-help-list-item a:hover{
+    color: white;
+}
 .instructor-help-list-item a span{
     margin-left: 1rem;
-
 }
 .create-course-button {
     color: white;
@@ -44,11 +45,15 @@
     padding: 0.6rem;
     border: 0;
     text-decoration: none;
+    text-align: center;
 }
 .create-course-button:hover {
     background-color: #a535f0b4;
     text-decoration: none;
     color: white;
+}
+.instructor-page-link{
+    color: #5624d0;
 }
 .instructor-dashboard-resource-row{
     display: flex;
@@ -81,4 +86,31 @@
     font-size: 14px;
     text-decoration: none;
     color: black;
+}
+.user-instructor-courses{
+    --bs-gutter-x:0!important;  
+    box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
+    border: 1px solid #d1d7dc;
+    margin-top: 1rem;
+    margin-bottom: 1.8rem;
+    display: flex;
+}
+.btn-update-course{
+    font-size: 16px;
+    font-weight: bold;
+    color: #1c1d1f;
+}
+.course-search-and-create-course{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+}
+.component-course-create .container{
+     --bs-gutter-x:0!important;  
+}
+.component-course-create .container h3{
+   font-size: 32px;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   font-weight: bold;
+   margin-bottom: 3rem;
 }

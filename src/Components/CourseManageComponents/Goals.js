@@ -1,6 +1,49 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../css/CourseManageComponents.css'
+import { useParams } from "react-router-dom";
+import { useFormik } from 'formik';
+import { FetchCourseDetailById, UpdateCourse } from '../../Services/CourseService'
+
 const Goals = () => {
+    const { id } = useParams()
+    const [course, setCourse] = useState({})
+
+    const GetCourse = async () => {
+        try {
+            const response = await FetchCourseDetailById(id)
+            setCourse(response.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const formik = useFormik({
+        initialValues: {
+            whatyouwilllearn1: '',
+            whatyouwilllearn2: '',
+            whatyouwilllearn3: '',
+            whatyouwilllearn4: ''
+        },
+        onSubmit: async (values) => {
+            course.whatYouWillLearn = {
+                "data": []
+            }
+            for (let key in values) {
+                course.whatYouWillLearn["data"].push(values[key])
+            }
+            console.log(course)
+            try {
+                const response = await UpdateCourse(course)
+                console.log(response)
+            } catch (error) {
+                console.log(error)
+            }
+        },
+    });
+    useEffect(() => {
+        GetCourse()
+    }, [])
+
     return (
         <div className='app-component'>
             <div className='app-component-header'>
@@ -34,16 +77,20 @@ const Goals = () => {
                     <div className='d-flex ' >
                         <form className='w-100' >
                             <div className='answer-input-group' >
-                                <input className='learn-goal-input form-control' type="text" placeholder="Örnek: Proje yöneticilerinin rollerini ve sorumluluklarını tanımlayın" />
+                                <input className='learn-goal-input form-control' onChange={formik.handleChange} name='whatyouwilllearn1' id='whatyouwilllearn1'
+                                    type="text" placeholder="Örnek: Proje yöneticilerinin rollerini ve sorumluluklarını tanımlayın" />
                             </div>
                             <div className='answer-input-group' >
-                                <input className='learn-goal-input form-control' type="text" placeholder="Örnek: Proje zaman çizelgelerini ve bütçeleri hesaplayın" />
+                                <input className='learn-goal-input form-control' onChange={formik.handleChange} name='whatyouwilllearn2' id='whatyouwilllearn2'
+                                    type="text" placeholder="Örnek: Proje zaman çizelgelerini ve bütçeleri hesaplayın" />
                             </div>
                             <div className='answer-input-group' >
-                                <input className='learn-goal-input form-control' type="text" placeholder="Örnek: Proje risklerini tanımlayın ve yönetin" />
+                                <input className='learn-goal-input form-control' onChange={formik.handleChange} name='whatyouwilllearn3' id='whatyouwilllearn3'
+                                    type="text" placeholder="Örnek: Proje risklerini tanımlayın ve yönetin" />
                             </div>
                             <div className='answer-input-group' >
-                                <input className='learn-goal-input form-control' type="text" placeholder="Örnek: Konsept aşamasından tamamlanana kadar bir projeyi yönetmek için bir örnek olay çalışması tamamlayın" />
+                                <input className='learn-goal-input form-control' onChange={formik.handleChange} name='whatyouwilllearn4' id='whatyouwilllearn4'
+                                    type="text" placeholder="Örnek: Konsept aşamasından tamamlanana kadar bir projeyi yönetmek için bir örnek olay çalışması tamamlayın" />
                             </div>
                         </form>
                     </div>
@@ -80,7 +127,7 @@ const Goals = () => {
                         </div>
                     </div>
                     <div className='submit-button'>
-                        <button type='submit' className='course-create-update-button'>
+                        <button type='submit' onClick={formik.handleSubmit} className='course-update-button'>
                             Kaydet
                         </button>
                     </div>

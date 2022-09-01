@@ -13,7 +13,24 @@ export const FetchHomePageTabs = () => {
     return axios.get("http://127.0.0.1:8000/api/tabs/")
 }
 
+export const FetchCourseDetailById = (id) => {
+    return axios.get("http://127.0.0.1:8000/api/courses/getbyid/" + id,
+        { headers: { "Sessionid": `${Cookies.get("sessionid")}` } })
+}
+
 export const CreateCourse = (course) => {
     return axios.post("http://127.0.0.1:8000/api/courses/", course,
         { headers: { "Sessionid": `${Cookies.get("sessionid")}` } })
 }
+
+export const UpdateCourse = (course) => {
+    return axios.put("http://127.0.0.1:8000/api/courses/" + course.slug + "/", course,
+        { headers: { "Sessionid": `${Cookies.get("sessionid")}` } })
+}
+
+export const GetCurrentUserCourses = () => {
+    return axios.get("http://127.0.0.1:8000/api/user/courses",
+        { headers: { "Sessionid": `${Cookies.get("sessionid")}` } })
+}
+
+

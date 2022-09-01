@@ -2,17 +2,26 @@ import React, { useEffect, useState } from 'react'
 import { Col, Image, Row } from 'react-bootstrap'
 import '../../css/CourseManageComponents.css'
 import { useFormik } from 'formik';
-import { CreateCourse } from '../../Services/CourseService'
+import { FetchCourseDetailById, UpdateCourse } from '../../Services/CourseService'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { FetchAllCategories } from '../../Services/CategoryService';
+import { useParams } from "react-router-dom";
 
 const Basics = () => {
-    const [text, setText] = useState("")
+    const { id } = useParams()
     const [categories, setCategories] = useState([])
+    const [course, setCourse] = useState({})
 
+    const GetCourse = async () => {
+        try {
+            const response = await FetchCourseDetailById(id)
+            await setCourse(response.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
     const GetAllCategories = async () => {
-
         try {
             const response = await FetchAllCategories()
             setCategories(response.data)
@@ -22,44 +31,44 @@ const Basics = () => {
     }
     useEffect(() => {
         GetAllCategories()
+        GetCourse()
     }, [])
 
     const formik = useFormik({
         initialValues: {
             title: '',
             subtitle: '',
-            description: '',
-            category: 0
+            description: ''
         },
         onSubmit: async (values) => {
-            console.log(values)
-            values.description = text
+            FormValidate(course, values)
             try {
-                const response = await CreateCourse(values)
-                console.log(response)
+                const response = await UpdateCourse(course)
             } catch (error) {
                 console.log(error)
             }
         },
     });
-
-
+    const FormValidate = (course, values) => {
+        for (let key in values) {
+            if (values[key] != "") {
+                course[key] = values[key]
+            }
+        }
+    }
     return (
         <div className='app-component'>
             <div className='app-component-header'>
                 <h2 className='fs-4 fw-bold'>Kurs açılış sayfası</h2>
             </div>
-
             <div className='app-component-main-content'>
-
-                <form onSubmit={formik.handleSubmit} className='w-100' >
-
+                {course && <form onSubmit={formik.handleSubmit} className='w-100' >
                     <div className='basic-answer-input-group'>
                         <label className='form-control-label' htmlFor='title'>
                             Kurs başlığı
                         </label>
                         <input onChange={formik.handleChange}
-                            value={formik.values.title}
+                            defaultValue={course.title || ''}
                             className='basic-answer-input form-control' id='title' name='title' type="text" />
                     </div>
 
@@ -68,7 +77,7 @@ const Basics = () => {
                             Kurs altbaşlığı
                         </label>
                         <input onChange={formik.handleChange}
-                            value={formik.values.subtitle}
+                            defaultValue={course.subtitle || ''}
                             className='basic-answer-input form-control' id='subtitle' name='subtitle' type="text" />
                     </div>
 
@@ -82,10 +91,10 @@ const Basics = () => {
                                 name='description'
                                 className='basic-answer-input form-control'
                                 editor={ClassicEditor}
-                                data={text}
+                                data={course.description || ''}
                                 onChange={(event, editor) => {
                                     const data = editor.getData()
-                                    setText(data)
+                                    course.description = data
                                 }}
                             />
                         </div>
@@ -143,16 +152,16 @@ const Basics = () => {
                                         750x422 piksel; .jpg, .jpeg,. gif veya .png. Ayrıca görüntü, metin içermemelidir.
                                     </p>
                                     <input onChange={formik.handleChange}
-                                        value={formik.values.image} name='image' id='image' className='basic-answer-input form-control fw-bold' type="file" /></Col>
+                                        defaultValue={course.image || ''} name='image' id='image' className='basic-answer-input form-control fw-bold' type="file" /></Col>
                             </Row>
                         </div>
                     </div>
                     <div className='submit-button'>
-                        <button type='submit' className='course-create-update-button'>
+                        <button type='submit' className='course-update-button'>
                             Kaydet
                         </button>
                     </div>
-                </form>
+                </form>}
 
             </div>
         </div>
