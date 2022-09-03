@@ -5,6 +5,8 @@ import CourseDetail from "../Pages/CourseDetail";
 import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
 import LearningContent from "../Pages/LearningContent";
+import Cart from "../Pages/Cart";
+import Checkout from "../Pages/Checkout";
 
 const PageRoutes = () => {
     return (
@@ -13,7 +15,9 @@ const PageRoutes = () => {
             <Route path="/:slug" element={<CourseDetail />} />
             <Route path="/join/login" element={<Login />} />
             <Route path="/join/signup" element={<Signup />} />
-            <Route path="/my-learning-content" element={<LearningContent />} />
+            <Route path="/my-courses/learning" element={<LearningContent />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/cart/checkout" element={<Checkout />} />
         </Routes>
     )
 }

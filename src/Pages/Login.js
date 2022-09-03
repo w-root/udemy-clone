@@ -20,6 +20,7 @@ const Login = () => {
         try {
             const response = await UserSignin(user)
             Cookies.set('sessionid', response.data.key)
+            Cookies.set('username', user.username)
             window.location.href = "/"
         } catch (error) {
             console.log(error)

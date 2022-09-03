@@ -1,3 +1,6 @@
+nav{
+    z-index: 3;
+}
 .nav-link{
     font-size: 14px!important;
     text-decoration: none;

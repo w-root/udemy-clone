@@ -1,0 +1,51 @@
+.marketplace-checkout-overview{
+    flex: 3;
+}
+.marketplace-checkout--header{
+    margin-bottom: 2rem;
+}
+.credit-card-input{
+
+    height: 2.7rem;
+    width: 100%;
+    border: 1px solid black!important;
+    border-radius: 0!important;
+    box-shadow: none!important;
+
+}
+.accordion-item-header-payment-method{
+    background-color: white;
+    border: 1px solid  #d1d7dc;;
+    padding: 0.4rem 0.6rem;
+    border-radius: 10px ;
+    margin-right: 0.3rem;
+}
+.accordion-item-header-payment-method-options{
+    background-color: white;
+    border: 1px solid  #d1d7dc;;
+    padding: 0.3rem 0.2rem;
+    border-radius: 10px ;
+    margin-right: 0.1rem;
+}
+.accordion-button::after{
+    content: none!important;
+}
+.checkout-summary{
+    margin-top: 13.6rem;
+    flex: 2;
+}
+.btn-complete-the-payment {
+    color: white;
+    background-color: #a435f0;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0.6rem;
+    border: 0;
+    margin-top: 1rem;
+    margin-bottom: 0.7rem;
+    z-index: 55!important;
+}
+.btn-complete-the-payment:hover {
+    background-color: #a535f0b4;
+}

@@ -6,7 +6,7 @@ import { Container } from 'react-bootstrap';
 import * as Yup from 'yup';
 import { UserSignup } from '../Services/UserService';
 import { useNavigate } from "react-router-dom";
-
+import Cookies from 'js-cookie'
 const SignupSchema = Yup.object().shape({
     username: Yup.string().min(2, 'İsim çok kısa!').required('Bu alan zorunludur !'),
     email: Yup.string().email('Email formatına uygun değil !').required('Bu alan zorunludur !'),
@@ -19,8 +19,8 @@ const Signup = () => {
     const Register = async (user) => {
         try {
             const response = await UserSignup(user)
-            localStorage.setItem("token", response.data.key)
-            navigate("/", { replace: true });
+            Cookies.set('sessionid', response.data.key)
+            window.location.href = "/"
         } catch (error) {
             console.log(error)
         }

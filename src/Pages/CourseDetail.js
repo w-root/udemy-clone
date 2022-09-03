@@ -14,7 +14,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { FetchCourseDetail } from "../Services/CourseService";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import parse from "html-react-parser"
 
 const CourseDetail = () => {
@@ -33,6 +33,19 @@ const CourseDetail = () => {
     useEffect(() => {
         getCourseDetail()
     }, [])
+
+    const addToCart = () => {
+        if (!localStorage.getItem("cart")) {
+            var cart = []
+            cart.push(course)
+            localStorage.setItem("cart", JSON.stringify(cart))
+        }
+        else {
+            var cart = JSON.parse(localStorage.getItem("cart"));
+            cart.push(course)
+            localStorage.cart = cart
+        }
+    }
 
     return (
         <div>
@@ -77,8 +90,14 @@ const CourseDetail = () => {
                                 <div className="course-add-cart-section">
                                     <div> <span className='fs-2 fw-bold'>₺{course.price}</span> </div>
                                     <div>
-                                        <button className="btn-add-to-cart">Sepete Ekle</button>
-                                        <button className="btn-register-link">Hemen Kaydolun</button>
+                                        <button onClick={addToCart} className="btn-add-to-cart">
+                                            <Link className="text-white text-decoration-none" to={"/cart"}>
+                                                Sepete Ekle</Link>
+                                        </button>
+                                        <button className="btn-register-link">
+                                            <Link className="text-dark text-decoration-none" to={"/"}>
+                                                Hemen Kaydolun</Link>
+                                        </button>
                                     </div>
                                 </div>
                                 <div className="mb-4 text-center" style={{ fontSize: "12px" }}>30 Gün İçinde Para İade Garantisi</div>
@@ -131,12 +150,13 @@ const CourseDetail = () => {
                             </div>
                             <div>
                                 <ul className="what-you-will-learn-list">
-                                    {course.whatYouWillLearn.data.map(i => {
-                                        return <li key={i} className="what-you-will-learn-list-item" >
-                                            <span><AiOutlineCheck /></span>
-                                            {i}
-                                        </li>
-                                    })}
+                                    {course.whatYouWillLearn.data != null ?
+                                        course.whatYouWillLearn.data.map(i => {
+                                            return <li key={i} className="what-you-will-learn-list-item" >
+                                                <span><AiOutlineCheck /></span>
+                                                {i}
+                                            </li>
+                                        }) : null}
 
                                 </ul>
                             </div>

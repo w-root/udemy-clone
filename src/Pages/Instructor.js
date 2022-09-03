@@ -11,7 +11,7 @@ import logo from '../Images/logo-udemy-inverted.svg'
 import { Col, Container, Image, Row } from 'react-bootstrap'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { GetCurrentUserCourses } from '../Services/CourseService'
+import { GetCurrentUserInstructorCourses } from '../Services/CourseService'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { AiOutlineSearch } from "react-icons/ai";
@@ -21,7 +21,7 @@ const Instructor = () => {
 
     const GetUserCourses = async () => {
         try {
-            const response = await GetCurrentUserCourses()
+            const response = await GetCurrentUserInstructorCourses()
             setCourses(response.data)
         } catch (error) {
             console.log(error)
@@ -93,7 +93,7 @@ const Instructor = () => {
             </div>
 
             <div className='component-course-create'>
-                <Container >
+                {courses.length && <Container >
                     <h3 >
                         Kurslar
                     </h3>
@@ -128,7 +128,7 @@ const Instructor = () => {
                             Yeni Kurs
                         </Link>
                     </div>
-                </Container>
+                </Container>}
 
 
 

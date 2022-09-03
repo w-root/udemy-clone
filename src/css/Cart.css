@@ -1,0 +1,67 @@
+.component-cart-header {
+    padding: 2.4rem;
+}
+.component-cart-header h1{
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   font-weight: bold;
+}
+.cart-item{
+    display: flex;
+    flex-direction: row!important;
+    border-radius: 0!important;
+    box-shadow: 0 0 2px #d1d7dc;
+}
+.cart-item .card-img-top{
+  max-width: 130px;
+}
+.cart-item .card-body{ 
+    padding: 0.4rem!important;
+}
+.cart-item .me-auto a{ 
+    color: #5624d0;
+    text-decoration: none;
+    font-size: 13px;
+}
+.cart-item .me-auto div:last-child{ 
+    color: #5624d0;
+    font-weight: bold;
+}
+.cart-item .card-body .card-title{ 
+    font-size: 15px!important;
+    font-weight: bold;
+    margin-bottom: 0!important;
+}
+.cart-item .card-body .card-text{ 
+    font-size: 14px;
+    --bs-text-opacity:1;
+    color: #6c757d!important;
+    margin-bottom: 0!important;
+
+}
+.cart-item .row .col .card-body .course-total-hours{ 
+    font-size: 12px;
+}
+hr{
+    box-sizing: content-box;
+    height: 0;
+    border: 0;
+    border-top: 1px solid #f7f9fa;
+}
+.shopping-cart-checkout {
+    color: white;
+    background-color: #a435f0;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0.6rem;
+    border: 0;
+    margin-top: 1rem;
+    margin-bottom: 0.7rem;
+}
+.shopping-cart-checkout:hover {
+    background-color: #a535f0b4;
+}
+.total-price a{
+    color: white;
+    text-decoration: none;
+}

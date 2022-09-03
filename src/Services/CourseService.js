@@ -28,9 +28,17 @@ export const UpdateCourse = (course) => {
         { headers: { "Sessionid": `${Cookies.get("sessionid")}` } })
 }
 
-export const GetCurrentUserCourses = () => {
-    return axios.get("http://127.0.0.1:8000/api/user/courses",
+export const GetCurrentUserInstructorCourses = () => {
+    return axios.get("http://127.0.0.1:8000/api/instructor/courses",
         { headers: { "Sessionid": `${Cookies.get("sessionid")}` } })
 }
 
+export const GetCurrentUserStudentCourses = () => {
+    return axios.get("http://127.0.0.1:8000/api/student/courses",
+        { headers: { "Sessionid": `${Cookies.get("sessionid")}` } })
+}
 
+export const BuyACourse = (course) => {
+    return axios.post("http://127.0.0.1:8000/api/student/buy-a-course", course,
+        { headers: { "Sessionid": `${Cookies.get("sessionid")}` } })
+}

@@ -1,0 +1,41 @@
+.my-courses-content-header{
+    color: white;
+    padding-right:10rem!important;
+    padding-left: 10rem!important;
+}
+.my-courses-content-header div h3{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+.my-courses-page-main-content{
+    padding-right:10rem!important;
+    padding-left: 10rem!important;
+}
+.course-title-url{
+    font-size: 16px!important;
+    font-weight: bold!important;
+    margin-bottom:0!important;
+}
+.course-instructor-name{
+    font-size: 14px!important;
+    margin-bottom: 0px!important;
+}
+.course-img-top{
+    width: 240px!important;
+    border-top-right-radius:0!important;
+    border-top-left-radius:0!important;
+}
+.card-body p{
+    font-size: 12px;
+}
+.dropdown-trigger-button{
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    border: 0!important;
+    background-color: white;
+    padding: 0 6px 0 6px;
+    top: 0.4rem;
+    right: 0.4rem;
+}

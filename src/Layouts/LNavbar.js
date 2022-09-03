@@ -17,7 +17,6 @@ const LNavbar = () => {
             const response = await UserLogout()
             Cookies.remove("sessionid")
             window.location.href = "join/login"
-            console.log(response)
         } catch (error) {
             console.log(error)
         }
@@ -66,7 +65,7 @@ const LNavbar = () => {
                                 <NavLink className='nav-link' to={"instructor/courses"}>
                                     Eğitmen
                                 </NavLink>
-                                <NavLink className='nav-link' to={"my-learning-content"}>
+                                <NavLink className='nav-link' to={"/my-courses/learning"}>
                                     Öğrenim İçeriğim
                                 </NavLink>
                             </div>

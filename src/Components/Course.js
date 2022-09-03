@@ -13,7 +13,7 @@ const Course = ({ course }) => {
                 <Card.Title className="fs-6 fw-bold">
 
                     <Link className="course-link" to={course.slug}>
-                        {" "}
+
                         {course.title.length > 54
                             ? course.title.substring(0, 54) + "..."
                             : course.title}
