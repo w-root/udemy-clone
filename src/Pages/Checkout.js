@@ -30,32 +30,28 @@ const Checkout = () => {
                                 <h2>
                                     Fatura Adresi
                                 </h2>
-                                <Form className=' border-1 justify-content-between'  >
+                                <Form className='border-1 justify-content-between'  >
                                     <label>
                                         Ülke
                                     </label>
                                     <div>
                                         <Form.Select style={{ border: "1px solid black", fontSize: "14px" }}
-                                            className="bg-white rounded-0 p-2 fw-bold shadow-none">
-                                            <option>Yakın zamanda erişilen</option>
-                                            <option>Yakın zamanda kayıt yapılan</option>
-                                            <option>Başlık: A-Z</option>
-                                            <option>Başlık: Z-A</option>
+                                            className="bg-white w-50 rounded-0 p-2 fw-bold shadow-none">
+                                            <option>Türkiye</option>
                                         </Form.Select>
                                     </div>
                                 </Form>
-                                <div>
+                                <div className="checkout-term">
                                     Udemy, yasalar gereği belirli vergi bölgelerinde yapılan satın alımlar için geçerli
                                     işlem vergilerini toplamakla yükümlüdür.
                                 </div>
                             </div>
 
                             <div className='payment-method'>
-                                <h2>Ödeme Yöntemi</h2>
+                                <h2 className="payment-menthot-header">Ödeme Yöntemi</h2>
                                 <div className="accordion" id="accordionExample">
                                     <div className="accordion-item">
                                         <h2 className="accordion-header" id="headingOne">
-
                                             <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                 <div className='accordion-item-header'>
                                                     <span className='accordion-item-header-payment-method'><BsCreditCardFill size={26} /></span>  Kredi/Hesap Kartı
@@ -72,27 +68,27 @@ const Checkout = () => {
                                         </h2>
                                         <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                             <div className="accordion-body">
-                                                <form >
+                                                <form>
                                                     <div className='credit-card-input-group' >
                                                         <label>Kart üzerindeki isim</label>
                                                         <input className='credit-card-input credit-card-name form-control'
-                                                            type="text" placeholder="Kart üzerindeki isim" />
+                                                            required type="text" placeholder="Kart üzerindeki isim" />
                                                     </div>
                                                     <div className='credit-card-input-group' >
-                                                        <label>Kart üzerindeki isim</label>
-                                                        <input className='credit-card-input credit-card-name form-control'
-                                                            type="text" placeholder="Kart üzerindeki isim" />
+                                                        <label>Kart Numarası</label>
+                                                        <input className='credit-card-input credit-card-no form-control'
+                                                            required type="text" placeholder="0000 0000 0000 0000" />
                                                     </div>
                                                     <div className='credit-card-input-group d-flex justify-content-between' >
                                                         <div>
-                                                            <label>Kart üzerindeki isim</label>
-                                                            <input className='credit-card-input credit-card-name form-control'
-                                                                type="text" placeholder="Kart üzerindeki isim" />
+                                                            <label>CVC/CVV</label>
+                                                            <input className='credit-card-input credit-card-cvc form-control'
+                                                                required type="text" placeholder="CVC" />
                                                         </div>
                                                         <div>
-                                                            <label>Kart üzerindeki isim</label>
-                                                            <input className='credit-card-input credit-card-name form-control'
-                                                                type="text" placeholder="Kart üzerindeki isim" />
+                                                            <label>Sona erme tarihi</label>
+                                                            <input className='credit-card-input credit-card-exp-date form-control'
+                                                                required type="text" placeholder="AA/YY" />
                                                         </div>
                                                     </div>
                                                 </form>
@@ -127,19 +123,23 @@ const Checkout = () => {
                                 <h2>
                                     Özet
                                 </h2>
-                                <div>
-                                    Orijinal Fiyat
+                                <div className="d-flex justify-content-between">
+                                    <div>
+                                        Orijinal Fiyat:
+                                    </div>
+                                    <div>₺429,99</div>
                                 </div>
                                 <hr />
-                                <div className='d-flex justify-content-between'>
+                                <div className='total-price d-flex justify-content-between'>
                                     <div>
                                         Toplam:
                                     </div>
                                     <div>₺429,99</div>
                                 </div>
                             </div>
+
                             <div>
-                                <div>
+                                <div className='terms-of-service' >
                                     Satın alma işleminizi tamamlayarak bu Hizmet Şartları'nı kabul etmiş olursunuz.
                                 </div>
                                 <button onClick={CompleteThePayment} className='btn-complete-the-payment'>

@@ -3,15 +3,60 @@
 }
 .marketplace-checkout--header{
     margin-bottom: 2rem;
+    padding-top: 2.8rem;
+    padding-bottom: 1rem;
+}
+.marketplace-checkout--header h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 32px;
+    font-weight: bold;
+}
+.billing-address {
+    margin-bottom:3rem;
+}
+.billing-address h2{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 1.6rem;
+}
+.billing-address form label{
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+}
+.billing-address .checkout-term{
+    font-size: 12px;
+    color: #6a6f73;
+    margin-top: 0.4rem;
+    margin-bottom: 0.2rem;
+    line-height: 16px;
+    
+}
+.payment-method .payment-menthot-header{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+.accordion-item{
+    border-radius: 0!important;
+}
+.accordion-button:not(.collapsed){
+    color: black!important;
+}
+.payment-method .accordion-body form div{
+    margin-bottom: 1rem;
+}
+.payment-method .accordion-body form label{
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
 }
 .credit-card-input{
-
     height: 2.7rem;
     width: 100%;
     border: 1px solid black!important;
     border-radius: 0!important;
     box-shadow: none!important;
-
 }
 .accordion-item-header-payment-method{
     background-color: white;
@@ -30,9 +75,38 @@
 .accordion-button::after{
     content: none!important;
 }
+.order-summary h2{
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 3rem;
+    margin-bottom: 2.3rem;
+}
+.order-summary .order-items .d-flex div{
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 0.8rem;
+}
 .checkout-summary{
-    margin-top: 13.6rem;
+    margin-top: 9rem;
     flex: 2;
+    padding-left: 1.6rem;
+}
+.checkout-summary div h2{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 1.4rem;
+}
+.checkout-summary div div{
+    font-size: 16px;
+}
+.checkout-summary div:first-child .total-price{
+    font-weight: bold;
+    font-size: 16px;
+}
+.terms-of-service{
+    font-size: 12px!important;
+    color: #6a6f73;
+    margin-top: 1rem;
 }
 .btn-complete-the-payment {
     color: white;
@@ -40,11 +114,11 @@
     width: 100%;
     font-size: 16px;
     font-weight: bold;
-    padding: 0.6rem;
+    padding: 1rem;
     border: 0;
     margin-top: 1rem;
     margin-bottom: 0.7rem;
-    z-index: 55!important;
+    border-radius: 5px;
 }
 .btn-complete-the-payment:hover {
     background-color: #a535f0b4;

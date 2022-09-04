@@ -10,8 +10,18 @@ export const UserSignin = (user) => {
 }
 
 export const UserLogout = () => {
-    console.log(Cookies.get("sessionid"))
     return axios.delete("http://127.0.0.1:8000/api/logout",
         { headers: { "Sessionid": `${Cookies.get("sessionid")}` } })
 }
 
+export const GetUserProfileInformation = () => {
+    return axios.get("http://127.0.0.1:8000/api/user-profiles/" + `${Cookies.get("username")}`,
+        { headers: { "Sessionid": `${Cookies.get("sessionid")}` } })
+}
+
+export const UpdateUserProfile = (profile) => {
+    console.log(profile.id)
+    console.log(profile)
+    return axios.put("http://127.0.0.1:8000/api/user-profiles/" + profile.id + "/", profile,
+        { headers: { "Sessionid": `${Cookies.get("sessionid")}` } })
+}
