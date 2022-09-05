@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Image } from 'react-bootstrap';
 import { AiOutlineSearch } from "react-icons/ai";
 import '../css/Navi.css';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Cookies from 'js-cookie'
 import { UserLogout } from '../Services/UserService';
 
@@ -16,7 +16,7 @@ const LNavbar = () => {
         try {
             const response = await UserLogout()
             Cookies.remove("sessionid")
-            window.location.href = "join/login"
+            window.location.href = "/join/login"
         } catch (error) {
             console.log(error)
         }
@@ -82,10 +82,42 @@ const LNavbar = () => {
                             Kaydol
                         </NavLink>
                     </div> :
-                        <div className='ms-5' onClick={logout}>
-                            <NavLink className='navlink-login' to={"/"}>
+                        <div className='ms-5' >
+                            {/* <NavLink className='navlink-login' to={"/"}>
                                 Logout
-                            </NavLink>
+                            </NavLink> */}
+                            <div className="btn-group dropstart">
+                                <button className="user-avatar dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <Image src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" className="rounded-circle shadow-4"
+                                        width={48} alt="Avatar" />
+                                </button>
+                                <ul className="dropdown-menu" >
+                                    <li>
+                                        <div className='d-flex p-2'>
+                                            <div>
+                                                <Image src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" className="rounded-circle shadow-4"
+                                                    width={64} height={64} alt="Avatar" />
+                                            </div>
+                                            <div className='ms-2'>
+                                                <div>
+                                                    Lorienn
+                                                </div>
+                                                <div>
+                                                    feneremree553@gmail.com
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <hr />
+                                    <li><Link className="dropdown-item" to={"/my-courses/learning"}>Öğrenim İçeriğim</Link></li>
+                                    <li><Link className="dropdown-item" to={"/instructor/courses"}>Eğitmen kontrol paneli</Link></li>
+                                    <hr />
+                                    <li><Link className="dropdown-item" to={"/instructor/profile/privacy"}>Profili düzenle</Link></li>
+                                    <hr />
+                                    <li><Link className="dropdown-item" to={"/"}>Yardım</Link></li>
+                                    <li><button className="dropdown-item" onClick={logout}>Oturumu Kapat</button></li>
+                                </ul>
+                            </div>
                         </div>
                 }
             </Nav>

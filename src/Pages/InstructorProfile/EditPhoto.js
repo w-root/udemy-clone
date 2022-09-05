@@ -1,10 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import InstructorPagesNavbarSidebar from '../../Layouts/InstructorPagesNavbarSidebar'
 import '../../css/InstructorProfile.css'
 import { Link } from 'react-router-dom'
-import { Col, Row } from 'react-bootstrap'
+import { Image, } from 'react-bootstrap'
+import { useFormik } from 'formik';
+import { UpdateUserProfilePhoto } from '../../Services/UserService'
 
 const EditPhoto = () => {
+    const [photo, setPhoto] = useState()
+
+    const formik = useFormik({
+        initialValues: {
+            photo: ''
+        },
+        onSubmit: async (values) => {
+            try {
+                let form_data = new FormData();
+                form_data.append('photo', photo, photo.name);
+                const response = await UpdateUserProfilePhoto(form_data)
+                console.log(response)
+            } catch (error) {
+                console.log(error)
+            }
+        },
+        validateOnChange: (e) => {
+            setPhoto(e.target.files[0])
+            var reader = new FileReader();
+            reader.onload = function () {
+                document.getElementById("profile-image-preview").src = reader.result;
+            }
+            if (e.target.files[0]) {
+                reader.readAsDataURL(e.target.files[0]);
+            }
+        },
+    });
     return (
         <div>
             <InstructorPagesNavbarSidebar></InstructorPagesNavbarSidebar>
@@ -24,14 +53,36 @@ const EditPhoto = () => {
                     <div className='profile-settings-nav-tab navtab-privacy'>
                         <button> <Link to={"/instructor/profile/privacy"}> Gizlilik ayarları </Link>  </button>
                     </div>
-
                 </div>
                 <hr />
-
-
                 <div>
+                    <div className='image-preview'>
+                        <h4>Görüntü önizleme</h4>
+                        <div>
+                            Minimum 200x200 piksel, Maksimum 6000x6000 piksel
+                        </div>
+                    </div>
+                    <div>
+                        <div className="image-upload-preview-wrapper">
+                            <div className="image-upload-preview-with-crop-image-wrapper">
+                                <Image id='profile-image-preview' alt="image-preview" height={200} width={200} src={"https://img-c.udemycdn.com/user/200_H/anonymous_3.png"} />
+                            </div>
+                        </div>
+                    </div>
 
-                    edit photo
+                    <div style={{ marginBottom: "12rem" }}>
+                        <form onSubmit={formik.handleSubmit}>
+                            <div className='profile-image-input-group'>
+                                <input accept="image/*" type="file" id="files" name='photo' onChange={formik.validateOnChange}
+                                    value={formik.values.photo} />
+                                <label htmlFor='files' className='image-upload-button'>Görüntü Yükle</label>
+                            </div>
+
+                            <button type='submit' className='user-profile-save-button'>
+                                Kaydet
+                            </button>
+                        </form>
+                    </div>
 
                 </div>
             </div>

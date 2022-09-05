@@ -21,7 +21,7 @@ const BasicInformation = () => {
     }
     useEffect(() => {
         GetInformations()
-    }, [])
+    })
 
     const formik = useFormik({
         initialValues: {
@@ -37,15 +37,7 @@ const BasicInformation = () => {
             youtube: '',
         },
         onSubmit: async (values) => {
-            console.log(values)
-            profile.title = values.title
-            profile.language = values.language
-            profile.website = values.website
-            profile.twitter = values.twitter
-            profile.facebook = values.facebook
-            profile.linkedin = values.linkedin
-            profile.youtube = values.youtube
-
+            FormValidate(profile, values)
             try {
                 const response = await UpdateUserProfile(profile)
                 console.log(response)
@@ -54,6 +46,13 @@ const BasicInformation = () => {
             }
         },
     });
+    const FormValidate = (profile, values) => {
+        for (let key in values) {
+            if (values[key] != "") {
+                profile[key] = values[key]
+            }
+        }
+    }
     return (
         <div>
             <InstructorPagesNavbarSidebar></InstructorPagesNavbarSidebar>
@@ -74,13 +73,12 @@ const BasicInformation = () => {
                     <div className='profile-settings-nav-tab navtab-privacy'>
                         <button> <Link to={"/instructor/profile/privacy"}> Gizlilik ayarları </Link>  </button>
                     </div>
-
                 </div>
                 <hr />
                 <div>
                     <Row>
                         <Col xs={12} md={5}>
-                            <form >
+                            {profile && <form >
                                 <div className='user-profile-input-group' >
                                     <label>Ad</label>
                                     <input className='user-profile-input user-name form-control'
@@ -98,7 +96,7 @@ const BasicInformation = () => {
                                 <div className='user-profile-input-group' >
                                     <label>Başlık</label>
                                     <input className='user-profile-input user-name form-control'
-                                        onChange={formik.handleChange} value={formik.values.title}
+                                        onChange={formik.handleChange} defaultValue={profile.title || ''}
                                         id="title" name="title" required type="text" placeholder="Udemy'de eğitmen" />
                                 </div>
 
@@ -106,8 +104,8 @@ const BasicInformation = () => {
                                     <label>Özgeçmiş</label>
                                     <div className='editor'>
                                         <CKEditor
-                                            id='description'
-                                            name='description'
+                                            id='bio'
+                                            name='bio'
                                             className='basic-answer-input form-control'
                                             editor={ClassicEditor}
                                             data={profile.bio || ''}
@@ -121,19 +119,19 @@ const BasicInformation = () => {
                                         Biyografiniz en az 50 karakter uzunluğunda olmalıdır; bağlantılara ve kupon kodlarına izin verilmez.
                                     </div>
                                 </div>
-                                <label>Dil</label>
-                                <select onChange={formik.handleChange} value={formik.values.language}
-                                    id='language' name='language' className="user-profile-input">
-                                    <option value={"Türkçe"}>Türkçe</option>
-                                    <option value={"Almanca"}>Almanca</option>
-                                    <option value={"İngilizce"}>İngilizce</option>
-                                    <option value={"İspanyolca"}>İspanyolca</option>
-                                </select>
-                                <div className='user-profile-input-group'>
 
+                                <div className='user-profile-input-group'>
+                                    <label>Dil</label>
+                                    <select onChange={formik.handleChange} defaultValue={profile.language || ''}
+                                        id='language' name='language' className="user-profile-input">
+                                        <option value={"Türkçe"}>Türkçe</option>
+                                        <option value={"Almanca"}>Almanca</option>
+                                        <option value={"İngilizce"}>İngilizce</option>
+                                        <option value={"İspanyolca"}>İspanyolca</option>
+                                    </select>
                                 </div>
 
-                            </form>
+                            </form>}
                             <button type='button' onClick={formik.handleSubmit} className='user-profile-save-button'>
                                 Kaydet
                             </button>
@@ -144,7 +142,7 @@ const BasicInformation = () => {
                                 <div className='user-profile-input-group' >
                                     <label>Web sitesi</label>
                                     <input className='user-profile-input user-name form-control'
-                                        onChange={formik.handleChange} value={formik.values.website}
+                                        onChange={formik.handleChange} defaultValue={profile.website || ''}
                                         name='website' id='website' required placeholder='Url' type="text" />
                                 </div>
 
@@ -153,7 +151,7 @@ const BasicInformation = () => {
                                     <div className='d-flex'>
                                         <span className="input-group-text" id="basic-addon3">http://www.twitter.com/</span>
                                         <input type="text" placeholder='Kullanıcı adı'
-                                            onChange={formik.handleChange} value={formik.values.twitter}
+                                            onChange={formik.handleChange} defaultValue={profile.twitter || ''}
                                             name='twitter' id='twitter' className="user-profile-input user-name form-control" aria-describedby="basic-addon3" />
                                     </div>
                                 </div>
@@ -163,7 +161,7 @@ const BasicInformation = () => {
                                     <div className='d-flex'>
                                         <span className="input-group-text" id="basic-addon3">http://www.facebook.com/</span>
                                         <input type="text" placeholder='Kullanıcı adı'
-                                            onChange={formik.handleChange} value={formik.values.facebook}
+                                            onChange={formik.handleChange} defaultValue={profile.facebook || ''}
                                             className="user-profile-input user-name form-control" name='facebook' id='facebook' aria-describedby="basic-addon3" />
                                     </div>
                                 </div>
@@ -173,7 +171,7 @@ const BasicInformation = () => {
                                     <div className='d-flex'>
                                         <span className="input-group-text" id="basic-addon3">http://www.linkedin.com/</span>
                                         <input type="text" placeholder='Kaynak kimliği'
-                                            onChange={formik.handleChange} value={formik.values.linkedin}
+                                            onChange={formik.handleChange} defaultValue={profile.linkedin || ''}
                                             className="user-profile-input user-name form-control" name='linkedin' id='linkedin' aria-describedby="basic-addon3" />
                                     </div>
 
@@ -184,9 +182,8 @@ const BasicInformation = () => {
                                     <div className='d-flex'>
                                         <span className="input-group-text" id="basic-addon3">http://www.youtube.com/</span>
                                         <input type="text" placeholder='Kullanıcı adı'
-                                            onChange={formik.handleChange} value={formik.values.youtube}
+                                            onChange={formik.handleChange} defaultValue={profile.youtube || ''}
                                             className="user-profile-input user-name form-control" name='youtube' id='youtube' aria-describedby="basic-addon3" />
-
                                     </div>
                                 </div>
                             </form>

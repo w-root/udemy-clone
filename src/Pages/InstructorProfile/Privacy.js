@@ -25,7 +25,26 @@ const Privacy = () => {
 
                 </div>
                 <hr />
-                <div>privacy</div>
+                <div>
+                    <div style={{ marginBottom: "25rem" }}>
+                        <form>
+                            <div className='input-group-checboxes'>
+                                <input checked type={"checkbox"} />
+                                <label className='ms-2' htmlFor='privacy-1'>Oturum açmış kullanıcılara profiliniz gösterilsin.</label>
+                            </div>
+
+                            <div className='input-group-checboxes'>
+                                <input checked type={"checkbox"} />
+                                <label className='ms-2' htmlFor='privacy-1'>Aldığınız kursları profil sayfanızda gösterin.</label>
+                            </div>
+
+                            <button className='user-profile-save-button'>
+                                Kaydet
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
             </div>
         </div>
 

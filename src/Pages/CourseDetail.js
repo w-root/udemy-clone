@@ -150,7 +150,7 @@ const CourseDetail = () => {
                             </div>
                             <div>
                                 <ul className="what-you-will-learn-list">
-                                    {course.whatYouWillLearn.data != null ?
+                                    {course.whatYouWillLearn != null ?
                                         course.whatYouWillLearn.data.map(i => {
                                             return <li key={i} className="what-you-will-learn-list-item" >
                                                 <span><AiOutlineCheck /></span>

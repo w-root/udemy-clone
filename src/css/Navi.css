@@ -39,3 +39,35 @@ nav{
 .navlink-register:hover{
     text-decoration: none;
 }
+.dropstart .dropdown-menu{
+    top: 5rem!important;
+    right: 0.5rem!important;
+    border-radius: 0;
+    width: 260px;
+}
+.dropstart .user-avatar{
+    background-color: transparent;
+    border: 0;
+}
+.dropstart .dropdown-toggle::before{
+    content :none!important
+
+}
+.dropstart ul li div div:last-child div:first-child{
+    font-size: 16px;
+    font-weight: bold;
+    
+} 
+.dropstart ul li div div:last-child div:last-child{
+    font-size: 12px;
+    color: #6a6f73;
+} 
+.dropstart ul li .dropdown-item{
+    font-size: 14px;
+    color: #000000;
+} 
+.dropstart ul li .dropdown-item:hover{
+    background-color: white;
+    text-decoration: none;
+    color: #a435f0;
+} 

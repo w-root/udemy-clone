@@ -59,3 +59,44 @@
     margin-top: 2rem;
 
 }
+.image-preview h4{
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 0.8rem;
+}
+.image-preview div{
+    font-size: 12px;
+    padding-bottom: 0.8rem;
+    color: #6a6f73;
+}
+.image-upload-preview-wrapper{
+    border: 1px solid #1c1d1f;
+    padding: 1rem;
+    margin-bottom: 1.6rem;
+    max-width: 40rem;
+}
+.image-upload-preview-with-crop-image-wrapper{
+    background: #f7f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+}
+.profile-image-input-group{
+    border: 1px solid black;
+
+    max-width: 40rem;
+}
+.image-upload-button{
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0.7rem;  
+    width: 40rem;
+}
+.input-group-checboxes{
+    font-size: 14px;
+    color: black;
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+}

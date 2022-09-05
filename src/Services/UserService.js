@@ -20,8 +20,11 @@ export const GetUserProfileInformation = () => {
 }
 
 export const UpdateUserProfile = (profile) => {
-    console.log(profile.id)
-    console.log(profile)
     return axios.put("http://127.0.0.1:8000/api/user-profiles/" + profile.id + "/", profile,
         { headers: { "Sessionid": `${Cookies.get("sessionid")}` } })
+}
+
+export const UpdateUserProfilePhoto = (formData) => {
+    return axios.put("http://127.0.0.1:8000/api/profile-photo", formData,
+        { headers: { "Sessionid": `${Cookies.get("sessionid")}`, 'Content-Type': 'multipart/form-data' } })
 }
