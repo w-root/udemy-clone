@@ -14,8 +14,8 @@ export const UserLogout = () => {
         { headers: { "Sessionid": `${Cookies.get("sessionid")}` } })
 }
 
-export const GetUserProfileInformation = () => {
-    return axios.get("http://127.0.0.1:8000/api/user-profiles/" + `${Cookies.get("username")}`,
+export const GetUserProfileInformation = (username) => {
+    return axios.get("http://127.0.0.1:8000/api/user-profiles/" + username,
         { headers: { "Sessionid": `${Cookies.get("sessionid")}` } })
 }
 

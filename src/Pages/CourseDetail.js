@@ -24,7 +24,6 @@ const CourseDetail = () => {
     const getCourseDetail = async () => {
         try {
             const response = await FetchCourseDetail(slug)
-            console.log(response.data)
             await setCourse(response.data)
         } catch (error) {
             console.log(error)
@@ -70,10 +69,11 @@ const CourseDetail = () => {
                             <div className="mb-2 text-white">
                                 Oluşturan <span style={{
                                     fontSize: "14px",
-                                    textDecoration: "underline",
-                                    color: "#CEC0FC",
                                     marginLeft: "0.4rem"
-                                }}>{course.instructor}</span>
+                                }}>
+                                    <Link style={{ color: "#CEC0FC", }} to={`/user/${course.instructor}`}>
+                                        {course.instructor}</Link>
+                                </span>
                             </div>
                             <div className="text-white">
                                 <BsPatchExclamation size={16} /> <span className="ms-1 me-3">Son güncelleme tarihi: {course.updatedDate}</span>

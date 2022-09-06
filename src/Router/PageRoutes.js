@@ -7,6 +7,7 @@ import Signup from "../Pages/Signup";
 import LearningContent from "../Pages/LearningContent";
 import Cart from "../Pages/Cart";
 import Checkout from "../Pages/Checkout";
+import UserDetail from "../Pages/UserDetail";
 
 const PageRoutes = () => {
     return (
@@ -18,6 +19,7 @@ const PageRoutes = () => {
             <Route path="/my-courses/learning" element={<LearningContent />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/cart/checkout" element={<Checkout />} />
+            <Route path="/user/:username" element={<UserDetail />} />
         </Routes>
     )
 }

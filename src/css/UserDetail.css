@@ -1,0 +1,51 @@
+.user-detail-page-container{
+    padding-left: 12rem!important;
+    padding-right: 12rem!important;
+}
+.instructor-name-and-title-content h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+} 
+.instructor-name-and-title-content div:first-child{
+    color: #6a6f73;
+    font-size: 14px;
+    margin-top: 4rem;
+    font-weight: bold;
+}  
+.instructor-name-and-title-content div:last-child{
+    font-weight: bold;
+    font-size: 16px;
+}
+.heading{
+    margin-right: 1rem;
+    font-weight: bold;
+    font-size: 14px;
+    color: #6a6f73;
+}
+.count{
+    font-size: 24px;
+    font-weight: bold;
+}
+.about-me h3{
+    font-size: 19px;
+    font-weight: bold;
+}
+.personal-image{
+        margin-top: 4rem;
+}
+.personal-link{
+    padding: 0.7rem 3rem;
+    font-weight: bold;
+    font-size: 16px;
+    border: 1px solid #1c1d1f;
+    text-decoration: none;
+    color: #1c1d1f;
+    display: block;
+    width: 12.5rem;
+    margin-top: 0.7rem;
+}
+.personal-link:hover{
+    color: #1c1d1f;
+    background-color: #dbdada95;
+    text-decoration: none;
+}

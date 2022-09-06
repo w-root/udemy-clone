@@ -33,8 +33,8 @@ export const UpdateCourseImage = (formData, id) => {
         { headers: { "Sessionid": `${Cookies.get("sessionid")}`, 'Content-Type': 'multipart/form-data' } })
 }
 
-export const GetCurrentUserInstructorCourses = () => {
-    return axios.get("http://127.0.0.1:8000/api/instructor/courses",
+export const GetUserInstructorCourses = (username) => {
+    return axios.get(`http://127.0.0.1:8000/api/${username}/instructor/courses`,
         { headers: { "Sessionid": `${Cookies.get("sessionid")}` } })
 }
 

@@ -100,10 +100,10 @@ const LNavbar = () => {
                                             </div>
                                             <div className='ms-2'>
                                                 <div>
-                                                    Lorienn
+                                                    <li><Link className="text-decoration-none text-dark" to={"/instructor/profile/privacy"}>{Cookies.get("username")}</Link></li>
                                                 </div>
                                                 <div>
-                                                    feneremree553@gmail.com
+                                                    your-mail-adress
                                                 </div>
                                             </div>
                                         </div>

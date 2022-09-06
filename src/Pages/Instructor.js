@@ -4,18 +4,19 @@ import { MdOutlineOndemandVideo, MdOutlineMessage, MdInsights, MdHelpCenter } fr
 import { GiTeacher } from 'react-icons/gi'
 import { Link } from 'react-router-dom';
 import { Col, Container, Image, Row } from 'react-bootstrap'
-import { GetCurrentUserInstructorCourses } from '../Services/CourseService'
+import { GetUserInstructorCourses } from '../Services/CourseService'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { AiOutlineSearch } from "react-icons/ai";
 import InstructorPagesNavbarSidebar from '../Layouts/InstructorPagesNavbarSidebar'
+import Cookies from 'js-cookie';
 
 const Instructor = () => {
     const [courses, setCourses] = useState([])
 
     const GetUserCourses = async () => {
         try {
-            const response = await GetCurrentUserInstructorCourses()
+            const response = await GetUserInstructorCourses(Cookies.get("username"))
             setCourses(response.data)
         } catch (error) {
             console.log(error)

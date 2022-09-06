@@ -29,12 +29,12 @@ const Privacy = () => {
                     <div style={{ marginBottom: "25rem" }}>
                         <form>
                             <div className='input-group-checboxes'>
-                                <input checked type={"checkbox"} />
+                                <input defaultChecked type={"checkbox"} />
                                 <label className='ms-2' htmlFor='privacy-1'>Oturum açmış kullanıcılara profiliniz gösterilsin.</label>
                             </div>
 
                             <div className='input-group-checboxes'>
-                                <input checked type={"checkbox"} />
+                                <input defaultChecked type={"checkbox"} />
                                 <label className='ms-2' htmlFor='privacy-1'>Aldığınız kursları profil sayfanızda gösterin.</label>
                             </div>
 

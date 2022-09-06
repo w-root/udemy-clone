@@ -7,13 +7,15 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { useFormik } from 'formik';
 import { GetUserProfileInformation, UpdateUserProfile } from '../../Services/UserService'
+import Cookies from "js-cookie";
 
 const BasicInformation = () => {
     const [profile, setProfile] = useState("")
 
     const GetInformations = async () => {
         try {
-            const response = await GetUserProfileInformation()
+            const response = await GetUserProfileInformation(Cookies.get("username"))
+            console.log(response.data)
             setProfile(response.data)
         } catch (error) {
             console.log(error)
@@ -21,7 +23,7 @@ const BasicInformation = () => {
     }
     useEffect(() => {
         GetInformations()
-    })
+    }, [])
 
     const formik = useFormik({
         initialValues: {
@@ -38,6 +40,7 @@ const BasicInformation = () => {
         },
         onSubmit: async (values) => {
             FormValidate(profile, values)
+            console.log(profile.user)
             try {
                 const response = await UpdateUserProfile(profile)
                 console.log(response)
@@ -82,14 +85,14 @@ const BasicInformation = () => {
                                 <div className='user-profile-input-group' >
                                     <label>Ad</label>
                                     <input className='user-profile-input user-name form-control'
-                                        onChange={formik.handleChange} value={formik.values.firstname}
+                                        onChange={formik.handleChange} defaultValue={profile.firstname || ''}
                                         id="firstname" name="firstname" required type="text" />
                                 </div>
 
                                 <div className='user-profile-input-group' >
                                     <label>Soyadı</label>
                                     <input className='user-profile-input user-name form-control'
-                                        onChange={formik.handleChange} value={formik.values.lastname}
+                                        onChange={formik.handleChange} defaultValue={profile.lastname || ''}
                                         id="lastname" name="lastname" required type="text" />
                                 </div>
 
