@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Col, Container, Image, Row } from 'react-bootstrap'
+import { Card, Col, Container, Image, Row } from 'react-bootstrap'
 import '../css/UserDetail.css'
 import { AiOutlineDisconnect, AiFillLinkedin, AiFillYoutube } from 'react-icons/ai'
 import { BsTwitter } from 'react-icons/bs'
@@ -12,23 +12,37 @@ import { GetUserProfileInformation } from '../Services/UserService'
 import Cookies from "js-cookie";
 import { useParams } from "react-router-dom";
 import parse from "html-react-parser"
-
+import { GetUserInstructorCourses } from '../Services/CourseService'
+import Course from '../Components/Course';
+import ReactStars from "react-rating-stars-component";
 const UserDetail = () => {
     const { username } = useParams()
     const [profile, setProfile] = useState()
+    const [courses, setCourses] = useState([])
 
     const GetInformations = async () => {
         try {
             const response = await GetUserProfileInformation(username)
-            console.log(response.data)
             setProfile(response.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const GetUserCourses = async () => {
+        try {
+            const response = await GetUserInstructorCourses(username)
+            console.log(response.data)
+            setCourses(response.data)
         } catch (error) {
             console.log(error)
         }
     }
     useEffect(() => {
         GetInformations()
+        GetUserCourses()
     }, [])
+
     return (
         <div>
             <Container className='user-detail-page-container'>
@@ -113,18 +127,48 @@ const UserDetail = () => {
                     </Col>
                 </Row>}
 
-                <div>
-
-
+                <div className='my-courses'>
                     <h3>
                         Kurslarım
                     </h3>
+                    <Row>
+                        <Col md={9} >
+                            <div className='instructor-courses'>
+                                {courses &&
+                                    courses.map(course => {
+                                        return <div key={course.id} className='instructor-courses-card-container'>
+                                            <Card>
+                                                <Card.Img width={240} height={200} id="card-image" src={course.image} />
+                                                <Card.Body>
+                                                    <Card.Title className="fs-6 fw-bold">
+                                                        <Link className="course-link" to={course.slug}>
 
-                    <div>
-
-                    </div>
+                                                            {course.title.length > 54
+                                                                ? course.title.substring(0, 54) + "..."
+                                                                : course.title}
+                                                        </Link>
+                                                    </Card.Title>
+                                                    <Card.Text id="instructor" className="text-muted mb-0">
+                                                        {course.instructor}
+                                                    </Card.Text>
+                                                    <div className="d-flex">
+                                                        <span className="course-rating">{course.rating}</span>
+                                                        <ReactStars edit={false} value={course.rating} />
+                                                        <span className="text-muted ms-2">({course.students.length})</span>
+                                                    </div>
+                                                    <div style={{ fontSize: "12px" }} className='text-muted'>
+                                                        Toplam 98,5 saat 696 ders Tüm Düzeyler
+                                                    </div>
+                                                    <Card.Text className="fs-6 fw-bold">₺{course.price}</Card.Text>
+                                                </Card.Body>
+                                            </Card>
+                                        </div>
+                                    })
+                                }
+                            </div>
+                        </Col>
+                    </Row>
                 </div>
-
             </Container>
         </div>
     )

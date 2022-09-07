@@ -49,3 +49,19 @@
     background-color: #dbdada95;
     text-decoration: none;
 }
+.my-courses h3{
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 1.4rem;
+}
+.my-courses .row .col-md-9 .instructor-courses {
+    padding-left: 0!important;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.my-courses .row .col-md-9 .instructor-courses .instructor-courses-card-container {
+    max-width: 20rem;
+    margin-right: 1rem;
+    margin-bottom: 0.6rem;
+}

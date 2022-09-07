@@ -1,13 +1,30 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Col, Container, Image, Row } from 'react-bootstrap';
-import Carousel from 'react-bootstrap/Carousel';
+import { Col, Container, Image, Row } from 'react-bootstrap';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import '../css/Home.css'
 import Course from '../Components/Course';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import Card from 'react-bootstrap/Card';
-import logoub from '../Images/logo-ub.svg'
 import { FetchAllCourses, FetchHomePageTabs } from '../Services/CourseService';
+
+const responsive = {
+    desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 5,
+        slidesToSlide: 3 // optional, default to 1.
+    },
+    tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 2,
+        slidesToSlide: 2 // optional, default to 1.
+    },
+    mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 1,
+        slidesToSlide: 1 // optional, default to 1.
+    }
+};
 
 const Courses = () => {
     const [courses, setCourses] = useState([])
@@ -62,10 +79,14 @@ const Courses = () => {
                                             {t.textContent}
                                         </div>
                                     </Row>
-                                    <Row md={5} xs={1}>
-                                        {courses.map(c => {
-                                            return <Course key={c.id} course={c} />
-                                        })}
+                                    <Row md={12} xs={1}>
+                                        <Carousel responsive={responsive}>
+                                            {courses.map(c => {
+                                                return <div className='mx-2' key={c.id}>
+                                                    <Course course={c}></Course>
+                                                </div>
+                                            })}
+                                        </Carousel>
                                     </Row>
                                 </Col>
                             </Tab>
