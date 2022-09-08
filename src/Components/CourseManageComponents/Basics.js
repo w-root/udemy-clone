@@ -7,10 +7,12 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { FetchAllCategories } from '../../Services/CategoryService';
 import { useParams } from "react-router-dom";
+import { GlobalContext, useContext } from '../../Context/MainContext'
 
 const Basics = () => {
+    const { categories } = useContext(GlobalContext)
     const { id } = useParams()
-    const [categories, setCategories] = useState([])
+
     const [course, setCourse] = useState({})
     const [image, setImage] = useState()
 
@@ -22,16 +24,8 @@ const Basics = () => {
             console.log(error)
         }
     }
-    const GetAllCategories = async () => {
-        try {
-            const response = await FetchAllCategories()
-            setCategories(response.data)
-        } catch (error) {
-            console.log(error)
-        }
-    }
+
     useEffect(() => {
-        GetAllCategories()
         GetCourse()
     }, [])
 

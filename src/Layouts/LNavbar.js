@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from '../Images/logo-udemy.svg';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -10,12 +10,15 @@ import '../css/Navi.css';
 import { Link, NavLink } from 'react-router-dom';
 import Cookies from 'js-cookie'
 import { UserLogout } from '../Services/UserService';
+import { GlobalContext, useContext } from '../Context/MainContext';
 
 const LNavbar = () => {
+    const { profile } = useContext(GlobalContext)
     const logout = async () => {
         try {
             const response = await UserLogout()
             Cookies.remove("sessionid")
+            Cookies.remove("username")
             window.location.href = "/join/login"
         } catch (error) {
             console.log(error)
@@ -83,24 +86,23 @@ const LNavbar = () => {
                         </NavLink>
                     </div> :
                         <div className='ms-5' >
-                            {/* <NavLink className='navlink-login' to={"/"}>
-                                Logout
-                            </NavLink> */}
                             <div className="btn-group dropstart">
                                 <button className="user-avatar dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <Image src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" className="rounded-circle shadow-4"
-                                        width={48} alt="Avatar" />
+                                    {profile && <Image src={`http://127.0.0.1:8000/` + profile.photo} className="rounded-circle shadow-4"
+                                        width={48} height={48} alt="Avatar" />
+                                    }
                                 </button>
                                 <ul className="dropdown-menu" >
                                     <li>
                                         <div className='d-flex p-2'>
                                             <div>
-                                                <Image src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" className="rounded-circle shadow-4"
-                                                    width={64} height={64} alt="Avatar" />
+                                                {profile && <Image src={`http://127.0.0.1:8000/` + profile.photo} className="rounded-circle shadow-4"
+                                                    height={48} width={48} alt="Avatar" />
+                                                }
                                             </div>
                                             <div className='ms-2'>
                                                 <div>
-                                                    <li><Link className="text-decoration-none text-dark" to={"/instructor/profile/privacy"}>{Cookies.get("username")}</Link></li>
+                                                    <Link className="text-decoration-none text-dark" to={"/instructor/profile/privacy"}>{Cookies.get("username")}</Link>
                                                 </div>
                                                 <div>
                                                     your-mail-adress

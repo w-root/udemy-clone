@@ -7,22 +7,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import { useFormik } from 'formik';
 import { CreateCourse } from '../Services/CourseService'
 import { FetchAllCategories } from '../Services/CategoryService'
+import { GlobalContext, useContext } from '../Context/MainContext'
 
 const CreateCoursePage = () => {
-    const [categories, setCategories] = useState([])
-
-    const GetAllCategories = async () => {
-        try {
-            const response = await FetchAllCategories()
-            setCategories(response.data)
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    useEffect(() => {
-        GetAllCategories()
-    }, [])
+    const { categories } = useContext(GlobalContext)
 
     const formik = useFormik({
         initialValues: {

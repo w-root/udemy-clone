@@ -7,6 +7,7 @@ import Course from '../Components/Course';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { FetchAllCourses, FetchHomePageTabs } from '../Services/CourseService';
+import { GlobalContext, useContext } from '../Context/MainContext'
 
 const responsive = {
     desktop: {
@@ -27,29 +28,7 @@ const responsive = {
 };
 
 const Courses = () => {
-    const [courses, setCourses] = useState([])
-    const [tabs, setTabs] = useState([])
-
-    const getAllCourses = async () => {
-        try {
-            const response = await FetchAllCourses()
-            setCourses(response.data)
-        } catch (error) {
-            console.log(error)
-        }
-    }
-    const getAllTabs = async () => {
-        try {
-            const response = await FetchHomePageTabs()
-            setTabs(response.data)
-        } catch (error) {
-            console.log(error)
-        }
-    }
-    useEffect(() => {
-        getAllCourses()
-        getAllTabs()
-    }, [])
+    const { courses, tabs } = useContext(GlobalContext)
 
     return (
         <Container >

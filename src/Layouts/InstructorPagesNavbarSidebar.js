@@ -10,8 +10,11 @@ import { MdOutlineOndemandVideo, MdOutlineMessage } from 'react-icons/md'
 import { IoMdStats } from 'react-icons/io'
 import { BiHelpCircle } from 'react-icons/bi'
 import $ from 'jquery';
+import { GlobalContext, useContext } from '../Context/MainContext';
 
 const InstructorPagesNavbarSidebar = () => {
+    const { profile } = useContext(GlobalContext)
+
     useEffect(() => {
         $(".offcanvas").unbind().mouseenter(function () {
             $(this).animate({ "margin-left": '250' });
@@ -25,22 +28,24 @@ const InstructorPagesNavbarSidebar = () => {
                 <Nav id='navbar-buttons' className='ms-auto'>
                     <div className="btn-group dropstart">
                         <button className="user-avatar dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            <Image src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" className="rounded-circle shadow-4"
-                                width={48} alt="Avatar" />
+                            {profile && <Image src={`http://127.0.0.1:8000/` + profile.photo} className="rounded-circle shadow-4"
+                                width={48} height={48} alt="Avatar" />
+                            }
                         </button>
                         <ul className="dropdown-menu" >
                             <li>
                                 <div className='d-flex p-2'>
                                     <div>
-                                        <Image src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" className="rounded-circle shadow-4"
-                                            width={64} height={64} alt="Avatar" />
+                                        {profile && <Image src={`http://127.0.0.1:8000/` + profile.photo} className="rounded-circle shadow-4"
+                                            width={48} height={48} alt="Avatar" />
+                                        }
                                     </div>
                                     <div className='ms-2'>
                                         <div>
-                                            Lorienn
+                                            {profile && profile.user}
                                         </div>
                                         <div>
-                                            feneremree553@gmail.com
+                                            your-email-adress
                                         </div>
                                     </div>
                                 </div>
