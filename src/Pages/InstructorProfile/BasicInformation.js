@@ -9,7 +9,7 @@ import { useFormik } from 'formik';
 import { GetUserProfileInformation, UpdateUserProfile } from '../../Services/UserService'
 import Cookies from "js-cookie";
 import { GlobalContext, useContext } from '../../Context/MainContext'
-
+import { toast } from "react-toastify";
 const BasicInformation = () => {
     const { profile } = useContext(GlobalContext)
 
@@ -31,7 +31,12 @@ const BasicInformation = () => {
             console.log(profile.user)
             try {
                 const response = await UpdateUserProfile(profile)
-                console.log(response)
+                toast.success('Değişiklikler başarıyla kaydedildi.', {
+                    position: toast.POSITION.BOTTOM_RIGHT,
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                    theme: 'colored'
+                });
             } catch (error) {
                 console.log(error)
             }

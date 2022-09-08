@@ -3,6 +3,7 @@ import '../../css/CourseManageComponents.css'
 import { useParams } from "react-router-dom";
 import { useFormik } from 'formik';
 import { FetchCourseDetailById, UpdateCourse } from '../../Services/CourseService'
+import { toast } from 'react-toastify';
 
 const Goals = () => {
     const { id } = useParams()
@@ -31,10 +32,14 @@ const Goals = () => {
             for (let key in values) {
                 course.whatYouWillLearn["data"].push(values[key])
             }
-            console.log(course)
             try {
-                const response = await UpdateCourse(course)
-                console.log(response)
+                await UpdateCourse(course)
+                toast.success('Değişiklikleriniz başarıyla kaydedildi.', {
+                    position: toast.POSITION.BOTTOM_RIGHT,
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                    theme: 'colored'
+                });
             } catch (error) {
                 console.log(error)
             }

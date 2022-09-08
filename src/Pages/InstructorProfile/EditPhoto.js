@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { Image, } from 'react-bootstrap'
 import { useFormik } from 'formik';
 import { UpdateUserProfilePhoto } from '../../Services/UserService'
-
+import { toast } from "react-toastify";
 const EditPhoto = () => {
     const [photo, setPhoto] = useState()
 
@@ -18,7 +18,12 @@ const EditPhoto = () => {
                 let form_data = new FormData();
                 form_data.append('photo', photo, photo.name);
                 const response = await UpdateUserProfilePhoto(form_data)
-                console.log(response)
+                toast.success('Değişiklikler başarıyla kaydedildi.', {
+                    position: toast.POSITION.BOTTOM_RIGHT,
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                    theme: 'colored'
+                });
             } catch (error) {
                 console.log(error)
             }

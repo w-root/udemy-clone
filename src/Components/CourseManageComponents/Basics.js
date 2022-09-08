@@ -8,6 +8,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { FetchAllCategories } from '../../Services/CategoryService';
 import { useParams } from "react-router-dom";
 import { GlobalContext, useContext } from '../../Context/MainContext'
+import { toast } from 'react-toastify';
 
 const Basics = () => {
     const { categories } = useContext(GlobalContext)
@@ -40,7 +41,13 @@ const Basics = () => {
             FormValidate(course, values)
             console.log(course)
             try {
-                const response = await UpdateCourse(course)
+                await UpdateCourse(course)
+                toast.success('Değişiklikleriniz başarıyla kaydedildi.', {
+                    position: toast.POSITION.BOTTOM_RIGHT,
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                    theme: 'colored'
+                });
             } catch (error) {
                 console.log(error)
             }

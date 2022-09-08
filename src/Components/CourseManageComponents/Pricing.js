@@ -3,6 +3,7 @@ import '../../css/CourseManageComponents.css'
 import { useParams } from "react-router-dom";
 import { useFormik } from 'formik';
 import { FetchCourseDetailById, UpdateCourse } from '../../Services/CourseService'
+import { toast } from 'react-toastify';
 
 const Pricing = () => {
     const { id } = useParams()
@@ -27,7 +28,12 @@ const Pricing = () => {
             course.price = parseFloat(values.price)
             try {
                 const response = await UpdateCourse(course)
-                console.log(response)
+                toast.success('Değişiklikleriniz başarıyla kaydedildi.', {
+                    position: toast.POSITION.BOTTOM_RIGHT,
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                    theme: 'colored'
+                });
             } catch (error) {
                 console.log(error)
             }

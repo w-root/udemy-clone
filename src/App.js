@@ -4,6 +4,7 @@ import LFooter from './Layouts/LFooter';
 import PageRoutes from './Router/PageRoutes';
 import InstructorPageRoutes from './Router/InstructorPageRoutes';
 import { useLocation } from "react-router-dom"
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   const location = useLocation();
@@ -17,6 +18,7 @@ function App() {
             <PageRoutes></PageRoutes>
           </div>
       }
+      <ToastContainer />
       <LFooter></LFooter>
     </div>
   );

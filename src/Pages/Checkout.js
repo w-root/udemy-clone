@@ -4,6 +4,7 @@ import '../css/Checkout.css'
 import { BsCreditCardFill } from 'react-icons/bs'
 import Cookies from 'js-cookie'
 import { BuyACourse } from '../Services/CourseService'
+import { toast } from "react-toastify";
 
 const Checkout = () => {
     const CompleteThePayment = async () => {
@@ -11,6 +12,15 @@ const Checkout = () => {
             var cart = JSON.parse(localStorage.getItem("cart"));
             cart[0].students.push(Cookies.get("username"))
             const response = await BuyACourse(cart[0])
+            toast.success('Satın alma başarıyla tamamlandı.', {
+                position: toast.POSITION.BOTTOM_RIGHT,
+                autoClose: 3000,
+                hideProgressBar: true,
+                theme: 'colored'
+            });
+            setTimeout(() => {
+                window.location.href = "/my-courses/learning"
+            }, 1000);
         } catch (error) {
             console.log(error)
         }

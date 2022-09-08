@@ -20,6 +20,7 @@ const Signup = () => {
         try {
             const response = await UserSignup(user)
             Cookies.set('sessionid', response.data.key)
+            Cookies.set('username', user.username)
             window.location.href = "/"
         } catch (error) {
             console.log(error)
