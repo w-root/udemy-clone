@@ -6,6 +6,17 @@ import Cookies from 'js-cookie'
 import { BuyACourse } from '../Services/CourseService'
 import { toast } from "react-toastify";
 import { GlobalContext, useContext } from '../Context/MainContext'
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+
+const CompleteThePaymentSchema = Yup.object().shape({
+    cardName: Yup.string().required('Bu alan zorunludur !').min(2, 'İsim çok kısa!'),
+    cardNo: Yup.string().length(16, "16 karakter olmalıdır")
+        .required('Bu alan zorunludur !').matches(/^[0-9]+$/, "Sadece sayılardan oluşmalıdır"),
+    cvc: Yup.string().length(3, "3 karakter olmalıdır")
+        .required('Bu alan zorunludur !').matches(/^[0-9]+$/, "Sadece sayılardan oluşmalıdır"),
+    expirationDate: Yup.string().length(5, '5 karakter olmalıdır ! ( / ile birlikte)').required('Bu alan zorunludur !'),
+});
 
 const Checkout = () => {
     const { cart, addToCart } = useContext(GlobalContext)
@@ -26,6 +37,20 @@ const Checkout = () => {
             console.log(error)
         }
     }
+
+    const formik = useFormik({
+        initialValues: {
+            cardName: '',
+            cardNo: '',
+            cvc: '',
+            expirationDate: '',
+        },
+        onSubmit: () => {
+            CompleteThePayment()
+        },
+        validationSchema: CompleteThePaymentSchema
+    });
+
     return (
         <div >
             <Container >
@@ -83,24 +108,52 @@ const Checkout = () => {
                                                     <div className='credit-card-input-group' >
                                                         <label>Kart üzerindeki isim</label>
                                                         <input className='credit-card-input credit-card-name form-control'
-                                                            required type="text" placeholder="Kart üzerindeki isim" />
+                                                            onChange={formik.handleChange}
+                                                            value={formik.values.cardName}
+                                                            name="cardName" id="cardName" type="text" placeholder="Kart üzerindeki isim" />
+                                                        {formik.errors.cardName && formik.touched.cardName ? (
+                                                            <div className='text-danger'>{formik.errors.cardName}</div>
+                                                        ) : null}
                                                     </div>
                                                     <div className='credit-card-input-group' >
                                                         <label>Kart Numarası</label>
                                                         <input className='credit-card-input credit-card-no form-control'
-                                                            required type="text" placeholder="0000 0000 0000 0000" />
+                                                            maxLength={16}
+                                                            onChange={formik.handleChange}
+                                                            value={formik.values.cardNo}
+                                                            name="cardNo" id="cardNo" type="text" placeholder="0000000000000000" />
+                                                        {formik.errors.cardNo && formik.touched.cardNo ? (
+                                                            <div className='text-danger'>{formik.errors.cardNo}</div>
+                                                        ) : null}
                                                     </div>
+
                                                     <div className='credit-card-input-group d-flex justify-content-between' >
                                                         <div>
                                                             <label>CVC/CVV</label>
                                                             <input className='credit-card-input credit-card-cvc form-control'
-                                                                required type="text" placeholder="CVC" />
+                                                                onChange={formik.handleChange}
+                                                                maxLength={3}
+                                                                value={formik.values.cvc}
+                                                                name="cvc" id="cvc" type="text" placeholder="CVC" />
+                                                            {formik.errors.cvc && formik.touched.cvc ? (
+                                                                <div className='text-danger'>{formik.errors.cvc}</div>
+                                                            ) : null}
                                                         </div>
                                                         <div>
                                                             <label>Sona erme tarihi</label>
                                                             <input className='credit-card-input credit-card-exp-date form-control'
-                                                                required type="text" placeholder="AA/YY" />
+                                                                onChange={formik.handleChange}
+                                                                value={formik.values.expirationDate}
+                                                                name="expirationDate" id="expirationDate" type="text" placeholder="AA/YY" />
+                                                            {formik.errors.expirationDate && formik.touched.expirationDate ? (
+                                                                <div className='text-danger'>{formik.errors.expirationDate}</div>
+                                                            ) : null}
+
                                                         </div>
+                                                    </div>
+
+                                                    <div className='reminding'>
+                                                        Forma rastgele veriler girmelisiniz
                                                     </div>
                                                 </form>
                                             </div>
@@ -164,7 +217,7 @@ const Checkout = () => {
                                 <div className='terms-of-service' >
                                     Satın alma işleminizi tamamlayarak bu Hizmet Şartları'nı kabul etmiş olursunuz.
                                 </div>
-                                <button onClick={CompleteThePayment} className='btn-complete-the-payment'>
+                                <button type="submit" onClick={formik.handleSubmit} className='btn-complete-the-payment'>
                                     Ödemeyi Tamamla
                                 </button>
                             </div>

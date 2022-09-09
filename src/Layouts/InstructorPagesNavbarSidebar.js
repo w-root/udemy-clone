@@ -25,7 +25,12 @@ const InstructorPagesNavbarSidebar = () => {
     return (
         <div>
             <Navbar bg="white" className='p-3  bg-body rounded' expand="lg" >
+
                 <Nav id='navbar-buttons' className='ms-auto'>
+                    <NavLink className='nav-link me-4' to={"/"}>
+                        Öğrenci
+                    </NavLink>
+
                     <div className="btn-group dropstart">
                         <button className="user-avatar dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             {profile && <Image src={`http://127.0.0.1:8000/` + profile.photo} className="rounded-circle shadow-4"
@@ -59,7 +64,8 @@ const InstructorPagesNavbarSidebar = () => {
                             <li><Link className="dropdown-item" to={"/"}>Yardım</Link></li>
 
                         </ul>
-                    </div>                </Nav>
+                    </div>
+                </Nav>
             </Navbar >
             <div className="offcanvas offcanvas-start" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                 <div className="offcanvas-body">

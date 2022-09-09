@@ -78,7 +78,7 @@ const EditPhoto = () => {
                     <div style={{ marginBottom: "12rem" }}>
                         <form onSubmit={formik.handleSubmit}>
                             <div className='profile-image-input-group'>
-                                <input accept="image/*" type="file" id="files" name='photo' onChange={formik.validateOnChange}
+                                <input hidden accept="image/*" type="file" id="files" name='photo' onChange={formik.validateOnChange}
                                     value={formik.values.photo} />
                                 <label htmlFor='files' className='image-upload-button'>Görüntü Yükle</label>
                             </div>

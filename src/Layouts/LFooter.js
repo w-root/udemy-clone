@@ -5,33 +5,33 @@ import '../css/Footer.css'
 import logo from '../Images/logo-udemy-inverted.svg'
 const LFooter = () => {
     return (
-        <footer className='mt-4'>
+        <footer >
 
             <Col className='p-5'>
                 <Row className='links-and-language-selector'>
                     <ul className="links list-unstyled">
                         <li className='list-item'>
-                            <a href='asd'>
+                            <a href='#'>
                                 Udemy Business
                             </a>
                         </li>
                         <li className='list-item'>
-                            <a >
+                            <a href='#'>
                                 Udemy'de Eğitim Verin
                             </a>
                         </li>
                         <li className='list-item'>
-                            <a >
+                            <a href='#'>
                                 Uygulamayı Edinin
                             </a>
                         </li>
                         <li className='list-item'>
-                            <a >
+                            <a href='#'>
                                 Hakkmızıda
                             </a>
                         </li>
                         <li className='list-item'>
-                            <a >
+                            <a href='#'>
                                 İletişim
                             </a>
                         </li>
@@ -39,27 +39,27 @@ const LFooter = () => {
 
                     <ul className="links list-unstyled">
                         <li className='list-item'>
-                            <a >
+                            <a href='#'>
                                 Kariyer
                             </a>
                         </li>
                         <li className='list-item'>
-                            <a >
+                            <a href='#'>
                                 Blog
                             </a>
                         </li>
                         <li className='list-item'>
-                            <a >
+                            <a href='#'>
                                 Yardım ve Destek
                             </a>
                         </li>
                         <li className='list-item'>
-                            <a >
+                            <a href='#'>
                                 İş Ortaklığı
                             </a>
                         </li>
                         <li className='list-item'>
-                            <a >
+                            <a href='#'>
                                 Yatırımcılar
                             </a>
                         </li>
@@ -67,27 +67,27 @@ const LFooter = () => {
 
                     <ul className="links list-unstyled">
                         <li className='list-item'>
-                            <a >
+                            <a href='#'>
                                 Koşullar
                             </a>
                         </li>
                         <li className='list-item'>
-                            <a >
+                            <a href='#'>
                                 Gizlilik Politikası
                             </a>
                         </li>
                         <li className='list-item'>
-                            <a >
+                            <a href='#'>
                                 Çerez Ayarları
                             </a>
                         </li>
                         <li className='list-item'>
-                            <a >
+                            <a href='#'>
                                 Site Haritası
                             </a>
                         </li>
                         <li className='list-item'>
-                            <a>
+                            <a href='#'>
                                 Erişilebilirlik Beyanı
                             </a>
                         </li>
@@ -95,12 +95,10 @@ const LFooter = () => {
 
                 </Row>
 
-                <div className='logo d-flex justify-content-between'>
+                <div className='logo d-flex justify-content-between mt-5'>
                     <div className='image'>
                         <a>
-                            <Image width={91} src={logo}>
-
-                            </Image>
+                            <Image width={91} src={logo} />
                         </a>
                     </div>
                     <div className='copyright'>

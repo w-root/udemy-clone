@@ -9,6 +9,7 @@ import { MdFacebook } from 'react-icons/md'
 import { FcGoogle } from 'react-icons/fc'
 import { GrApple } from 'react-icons/gr'
 import Cookies from 'js-cookie'
+import { useState } from 'react';
 
 const SigninSchema = Yup.object().shape({
     username: Yup.string().min(2, 'İsim çok kısa!').required('Bu alan zorunludur !'),
@@ -16,6 +17,7 @@ const SigninSchema = Yup.object().shape({
 });
 
 const Login = () => {
+    const [error, setError] = useState()
     const UserLogin = async (user) => {
         try {
             const response = await UserSignin(user)
@@ -24,6 +26,7 @@ const Login = () => {
             window.location.href = "/"
         } catch (error) {
             console.log(error)
+            setError(error)
         }
     }
     const formik = useFormik({
@@ -59,6 +62,10 @@ const Login = () => {
                     </button>
                 </div>
                 <div className='my-3'>
+                    {error &&
+                        <div className='alert alert-danger rounded-0'>
+                            Oturum açılırken bir sorun oluştu. E-posta adresinizi ve şifrenizi kontrol edin veya bir hesap oluşturun.
+                        </div>}
                     <form onSubmit={formik.handleSubmit}>
                         <div className='input-group'>
                             <input className='form-item' id="username" name="username" placeholder="Kullanıcı adı"

@@ -51,6 +51,13 @@
     font-weight: bold;
     padding-bottom: 0.5rem;
 }
+.payment-method .accordion-body form .reminding{
+    font-size: 12px;
+    color: #383c3f;
+    margin-top: 0.4rem;
+    margin-bottom: 0.2rem;
+    line-height: 16px;
+}
 .credit-card-input{
     height: 2.7rem;
     width: 100%;

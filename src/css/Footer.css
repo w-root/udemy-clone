@@ -1,21 +1,18 @@
 footer{
     background-color: #1c1d1f;
     color: white!important;
+    margin-top: 6rem;
 }
-a{
-
-
-
+.links-and-language-selector ul li a{
+text-decoration: none;
+color: white;
 }
-a:hover{
+.links-and-language-selector ul li a:hover{
     text-decoration: underline;
 }
 .links{
     font-size: 14px;
     max-width: 15%!important;    
-}
-.links-and-language-selector{
-    
 }
 .list-item{
     margin: 0.5rem;

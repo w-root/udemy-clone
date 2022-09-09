@@ -64,7 +64,7 @@ const Cart = () => {
                                         Toplam :
                                     </div>
                                     <h1 className='fw-bold'>
-                                        {cart.length > 0 &&
+                                        ₺{cart.length > 0 &&
                                             cart.reduce((acc, obj) => acc + parseFloat(obj.price), 0.00)
                                         }
                                     </h1>

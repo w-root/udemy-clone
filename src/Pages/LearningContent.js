@@ -112,6 +112,17 @@ const LearningContent = () => {
                                 </Card.Body>
                             </Card>
                         })}
+
+                        {courses.length == 0 &&
+                            <div style={{ marginTop: "7rem", marginBottom: "7rem" }} className='mx-auto  text-center'>
+                                <div className='fw-bold fs-5'>
+                                    204.000 kurstan daha fazlasına erişim elde ederek hemen <br /> öğrenmeye başlayın.
+                                </div>
+                                <div>
+                                    Bir kursa kaydolduğunuzda kurs burada görünür. <a style={{ color: "#5624d0" }} href='#'>Hemen göz atın.</a>
+                                </div>
+                            </div>
+                        }
                     </div>
                 </div>
             </Container>

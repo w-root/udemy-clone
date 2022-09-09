@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useFormik } from 'formik';
 import '../css/Signup.css'
 import { Link } from 'react-router-dom';
@@ -10,10 +10,11 @@ import Cookies from 'js-cookie'
 const SignupSchema = Yup.object().shape({
     username: Yup.string().min(2, 'İsim çok kısa!').required('Bu alan zorunludur !'),
     email: Yup.string().email('Email formatına uygun değil !').required('Bu alan zorunludur !'),
-    password1: Yup.string().min(8, 'Minimum 8 karakter olmalıdır !').required('Bu alan zorunludur !'),
+    password1: Yup.string().min(8, 'Minimum 8 karakter olmalıdır !').matches(/[a-zA-Z]+/, "Şifrede en az bir tane harf bulunmalıdır !").required('Bu alan zorunludur !'),
 });
 
 const Signup = () => {
+    const [error, setError] = useState()
     let navigate = useNavigate();
 
     const Register = async (user) => {
@@ -24,6 +25,7 @@ const Signup = () => {
             window.location.href = "/"
         } catch (error) {
             console.log(error)
+            setError(error)
         }
     }
 
@@ -45,6 +47,10 @@ const Signup = () => {
         <Container style={{ width: "25rem" }}>
             <div className='my-5'>
                 <div className='fs-6 fw-bold' >Kaydolun ve Öğrenmeye Başlayın </div>
+                {error && <div className='alert alert-danger fw-bold rounded-0 mt-3'>
+                    Hesabınız oluşturulurken bir sorun meydana geldi.
+                    E-posta adresinizin ve kullanıcı adınızın doğru yazılıp yazılmadığını kontrol edin.
+                </div>}
                 <div className='my-3'>
                     <form onSubmit={formik.handleSubmit}>
                         <div className='input-group'>
