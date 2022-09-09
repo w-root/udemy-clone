@@ -5,13 +5,14 @@ import { BsCreditCardFill } from 'react-icons/bs'
 import Cookies from 'js-cookie'
 import { BuyACourse } from '../Services/CourseService'
 import { toast } from "react-toastify";
+import { GlobalContext, useContext } from '../Context/MainContext'
 
 const Checkout = () => {
+    const { cart, addToCart } = useContext(GlobalContext)
+
     const CompleteThePayment = async () => {
         try {
-            var cart = JSON.parse(localStorage.getItem("cart"));
-            cart[0].students.push(Cookies.get("username"))
-            const response = await BuyACourse(cart[0])
+            const response = await BuyACourse(cart)
             toast.success('Satın alma başarıyla tamamlandı.', {
                 position: toast.POSITION.BOTTOM_RIGHT,
                 autoClose: 3000,
@@ -113,17 +114,19 @@ const Checkout = () => {
                                 <h2>
                                     Sipariş
                                 </h2>
-                                <div className='order-items d-flex justify-content-between'>
-                                    <div className='d-flex'>
-                                        <Image width={32} height={32} />
+                                {cart.map(c => {
+                                    return <div key={c.id} className='order-items d-flex justify-content-between my-2'>
+                                        <div className='d-flex'>
+                                            <Image src={c.image} width={32} height={32} />
+                                            <div>
+                                                {c.title}
+                                            </div>
+                                        </div>
                                         <div>
-                                            Asp.Net Core 5.0 ile Adım Adım Web Geliştirme
+                                            ₺{c.price}
                                         </div>
                                     </div>
-                                    <div>
-                                        ₺429,99
-                                    </div>
-                                </div>
+                                })}
                             </div>
                         </div>
                     </Col>
@@ -137,14 +140,23 @@ const Checkout = () => {
                                     <div>
                                         Orijinal Fiyat:
                                     </div>
-                                    <div>₺429,99</div>
+                                    <div>
+                                        ₺{
+                                            cart.length > 0 &&
+                                            cart.reduce((acc, obj) => acc + parseFloat(obj.price), 0.00)
+                                        }
+                                    </div>
                                 </div>
                                 <hr />
                                 <div className='total-price d-flex justify-content-between'>
                                     <div>
                                         Toplam:
                                     </div>
-                                    <div>₺429,99</div>
+                                    <div>
+                                        ₺{
+                                            cart.length > 0 &&
+                                            cart.reduce((acc, obj) => acc + parseFloat(obj.price), 0.00)
+                                        }</div>
                                 </div>
                             </div>
 

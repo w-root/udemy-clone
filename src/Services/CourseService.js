@@ -43,7 +43,7 @@ export const GetCurrentUserStudentCourses = () => {
         { headers: { "Sessionid": `${Cookies.get("sessionid")}` } })
 }
 
-export const BuyACourse = (course) => {
-    return axios.post("http://127.0.0.1:8000/api/student/buy-a-course", course,
+export const BuyACourse = (courses) => {
+    return axios.post("http://127.0.0.1:8000/api/student/buy-a-course", courses,
         { headers: { "Sessionid": `${Cookies.get("sessionid")}` } })
 }

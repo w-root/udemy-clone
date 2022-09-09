@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState, useContext } from 'react'
 import Cookies from 'js-cookie'
-import { GetAllCategories, GetAllCourses, GetAllTabs, GetInformations } from './Actions'
+import { GetAllCategories, GetAllCourses, GetAllTabs, GetInformations, addToCart } from './Actions'
 
 const GlobalContext = createContext()
 
@@ -10,18 +10,23 @@ export const MainProvider = ({ children }) => {
     const [courses, setCourses] = useState([])
     const [tabs, setTabs] = useState([])
 
+    const [cart, setCart] = useState([])
+
     useEffect(() => {
         GetInformations(setProfile)
         GetAllCategories(setCategories)
         GetAllCourses(setCourses)
         GetAllTabs(setTabs)
+        console.log(cart)
     }, [])
 
     const value = {
         profile,
         categories,
         courses,
-        tabs
+        tabs,
+        cart,
+        addToCart
     }
 
     return (

@@ -16,10 +16,14 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 import { FetchCourseDetail } from "../Services/CourseService";
 import { Link, useParams } from "react-router-dom";
 import parse from "html-react-parser"
+import { GlobalContext, useContext } from '../Context/MainContext'
+import Cookies from "js-cookie";
 
 const CourseDetail = () => {
     const { slug } = useParams()
     const [course, setCourse] = useState(null)
+
+    const { cart, addToCart } = useContext(GlobalContext)
 
     const getCourseDetail = async () => {
         try {
@@ -32,19 +36,6 @@ const CourseDetail = () => {
     useEffect(() => {
         getCourseDetail()
     }, [])
-
-    const addToCart = () => {
-        if (!localStorage.getItem("cart")) {
-            var cart = []
-            cart.push(course)
-            localStorage.setItem("cart", JSON.stringify(cart))
-        }
-        else {
-            var cart = JSON.parse(localStorage.getItem("cart"));
-            cart.push(course)
-            localStorage.cart = cart
-        }
-    }
 
     return (
         <div>
@@ -90,14 +81,22 @@ const CourseDetail = () => {
                                 <div className="course-add-cart-section">
                                     <div> <span className='fs-2 fw-bold'>₺{course.price}</span> </div>
                                     <div>
-                                        <button onClick={addToCart} className="btn-add-to-cart">
-                                            <Link className="text-white text-decoration-none" to={"/cart"}>
-                                                Sepete Ekle</Link>
-                                        </button>
-                                        <button className="btn-register-link">
-                                            <Link className="text-dark text-decoration-none" to={"/"}>
-                                                Hemen Kaydolun</Link>
-                                        </button>
+                                        {
+                                            course.students.find(i => i == Cookies.get("username")) ?
+                                                <button className="btn-add-to-cart">
+                                                    Kursa git
+                                                </button> :
+                                                <div>
+                                                    <button onClick={() => addToCart(cart, course)} className="btn-add-to-cart">
+                                                        Sepete Ekle
+                                                    </button>
+                                                    <button className="btn-register-course-link">
+                                                        <Link onClick={() => addToCart(cart, course)} className="text-dark text-decoration-none" to={"/cart/checkout"}>
+                                                            Hemen Kaydolun
+                                                        </Link>
+                                                    </button>
+                                                </div>
+                                        }
                                     </div>
                                 </div>
                                 <div className="mb-4 text-center" style={{ fontSize: "12px" }}>30 Gün İçinde Para İade Garantisi</div>

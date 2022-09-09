@@ -11,6 +11,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Cookies from 'js-cookie'
 import { UserLogout } from '../Services/UserService';
 import { GlobalContext, useContext } from '../Context/MainContext';
+import { FiShoppingCart } from 'react-icons/fi'
 
 const LNavbar = () => {
     const { profile } = useContext(GlobalContext)
@@ -85,7 +86,8 @@ const LNavbar = () => {
                             Kaydol
                         </NavLink>
                     </div> :
-                        <div className='ms-5' >
+                        <div className='ms-5 d-flex align-items-center' >
+                            <div className='me-4'><Link className='text-dark' to={"/cart"}><FiShoppingCart size={20} /></Link> </div>
                             <div className="btn-group dropstart">
                                 <button className="user-avatar dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                     {profile && <Image src={`http://127.0.0.1:8000/` + profile.photo} className="rounded-circle shadow-4"

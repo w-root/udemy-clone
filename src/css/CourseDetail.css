@@ -53,7 +53,7 @@
 .btn-add-to-cart:hover {
     background-color: #a535f0b4;
 }
-.btn-register-link {
+.btn-register-course-link {
     color: black;
     background-color: white;
     width: 100%;
@@ -63,7 +63,7 @@
     border: 1px solid;
     margin-bottom: 1rem;
 }
-.btn-register-link:hover {
+.btn-register-course-link:hover {
     background-color: rgba(240, 241, 243, 0.852);
 }
 .course-content-list-item {

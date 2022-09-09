@@ -2,7 +2,7 @@ import Cookies from 'js-cookie'
 import { GetUserProfileInformation } from '../Services/UserService'
 import { FetchAllCategories } from '../Services/CategoryService'
 import { FetchAllCourses, FetchHomePageTabs } from '../Services/CourseService'
-
+import { toast } from 'react-toastify';
 export const GetInformations = async (setProfile) => {
     try {
         const response = await GetUserProfileInformation(Cookies.get("username"))
@@ -35,5 +35,24 @@ export const GetAllTabs = async (setTabs) => {
         setTabs(response.data)
     } catch (error) {
         console.log(error)
+    }
+}
+
+export const addToCart = (cart, course) => {
+    if (cart.find(item => item.id == course.id)) {
+        toast.error('Kurs zaten sepete eklendi.', {
+            position: toast.POSITION.BOTTOM_RIGHT,
+            autoClose: 3000,
+            hideProgressBar: true,
+            theme: 'colored'
+        })
+    } else {
+        toast.success('Sepete Eklendi.', {
+            position: toast.POSITION.BOTTOM_RIGHT,
+            autoClose: 3000,
+            hideProgressBar: true,
+            theme: 'colored'
+        })
+        cart.push(course)
     }
 }
