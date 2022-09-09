@@ -87,9 +87,14 @@ const CourseDetail = () => {
                                                     Kursa git
                                                 </button> :
                                                 <div>
-                                                    <button onClick={() => addToCart(cart, course)} className="btn-add-to-cart">
-                                                        Sepete Ekle
-                                                    </button>
+                                                    {Cookies.get("sessionid") ?
+                                                        <button onClick={() => addToCart(cart, course)} className="btn-add-to-cart">
+                                                            Sepete Ekle
+                                                        </button> :
+                                                        <button className="btn-add-to-cart">
+                                                            Giriş yapmalısınız
+                                                        </button>
+                                                    }
                                                     <button className="btn-register-course-link">
                                                         <Link onClick={() => addToCart(cart, course)} className="text-dark text-decoration-none" to={"/cart/checkout"}>
                                                             Hemen Kaydolun

@@ -8,17 +8,18 @@ import LearningContent from "../Pages/LearningContent";
 import Cart from "../Pages/Cart";
 import Checkout from "../Pages/Checkout";
 import UserDetail from "../Pages/UserDetail";
+import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 
 const PageRoutes = () => {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/:slug" element={<CourseDetail />} />
-            <Route path="/join/login" element={<Login />} />
-            <Route path="/join/signup" element={<Signup />} />
-            <Route path="/my-courses/learning" element={<LearningContent />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/cart/checkout" element={<Checkout />} />
+            <Route path="/join/login" element={<ProtectedRoute Page={<Login />} />} />
+            <Route path="/join/signup" element={<ProtectedRoute Page={<Signup />} />} />
+            <Route path="/my-courses/learning" element={<ProtectedRoute Page={<LearningContent />} />} />
+            <Route path="/cart" element={<ProtectedRoute Page={<Cart />} />} />
+            <Route path="/cart/checkout" element={<ProtectedRoute Page={<Checkout />} />} />
             <Route path="/user/:username" element={<UserDetail />} />
         </Routes>
     )
