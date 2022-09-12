@@ -4,9 +4,8 @@ import "../css/CourseDetail.css";
 import { MdLanguage, MdOutlineOndemandVideo } from "react-icons/md";
 import { BsPatchExclamation } from "react-icons/bs";
 import { AiOutlineFile, AiOutlineLike, AiOutlineDislike, AiOutlineCheck, AiOutlineSearch } from "react-icons/ai";
-import { RiFolderDownloadLine } from "react-icons/ri";
+import { RiFolderDownloadLine, RiSmartphoneLine } from "react-icons/ri";
 import { CgInfinity } from "react-icons/cg";
-import { RiSmartphoneLine } from "react-icons/ri";
 import { GiTargetPrize } from "react-icons/gi";
 import ReactStars from "react-rating-stars-component";
 import Accordion from 'react-bootstrap/Accordion';
@@ -25,7 +24,7 @@ const CourseDetail = () => {
 
     const { cart, addToCart } = useContext(GlobalContext)
 
-    const getCourseDetail = async () => {
+    const GetCourseDetail = async () => {
         try {
             const response = await FetchCourseDetail(slug)
             await setCourse(response.data)
@@ -34,7 +33,8 @@ const CourseDetail = () => {
         }
     }
     useEffect(() => {
-        getCourseDetail()
+        GetCourseDetail()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
@@ -74,33 +74,32 @@ const CourseDetail = () => {
                         <div className="course-sidebar">
                             <div className='course-introduction'>
                                 <div className="course-preview-section h-100">
-                                    <Image className="w-100" src={course.image}></Image>
+                                    <Image width={240} height={200} className="w-100" src={course.image}></Image>
                                 </div>
                             </div>
                             <div className="course-content-section">
                                 <div className="course-add-cart-section">
                                     <div> <span className='fs-2 fw-bold'>₺{course.price}</span> </div>
                                     <div>
-                                        {
-                                            course.students.find(i => i == Cookies.get("username")) ?
-                                                <button className="btn-add-to-cart">
-                                                    Kursa git
-                                                </button> :
-                                                <div>
-                                                    {Cookies.get("sessionid") ?
-                                                        <button onClick={() => addToCart(cart, course)} className="btn-add-to-cart">
-                                                            Sepete Ekle
-                                                        </button> :
-                                                        <button className="btn-add-to-cart">
-                                                            Giriş yapmalısınız
-                                                        </button>
-                                                    }
-                                                    <button className="btn-register-course-link">
-                                                        <Link onClick={() => addToCart(cart, course)} className="text-dark text-decoration-none" to={"/cart/checkout"}>
-                                                            Hemen Kaydolun
-                                                        </Link>
+                                        {course.students.find(i => i === Cookies.get("username")) ?
+                                            <button className="btn-add-to-cart">
+                                                Kursa git
+                                            </button> :
+                                            <div>
+                                                {Cookies.get("sessionid") ?
+                                                    <button onClick={() => addToCart(cart, course)} className="btn-add-to-cart">
+                                                        Sepete Ekle
+                                                    </button> :
+                                                    <button className="btn-add-to-cart">
+                                                        Giriş yapmalısınız
                                                     </button>
-                                                </div>
+                                                }
+                                                <button className="btn-register-course-link">
+                                                    <Link onClick={() => addToCart(cart, course)} className="text-dark text-decoration-none" to={"/cart/checkout"}>
+                                                        Hemen Kaydolun
+                                                    </Link>
+                                                </button>
+                                            </div>
                                         }
                                     </div>
                                 </div>
@@ -319,7 +318,7 @@ const CourseDetail = () => {
                                         <button className="btn-feedback">
                                             <AiOutlineDislike size={20} />
                                         </button>
-                                        <a href="#" className="text-dark fs-6">Bildir</a>
+                                        <a href="/#" className="text-dark fs-6">Bildir</a>
                                     </div>
                                 </div>
                             </div>

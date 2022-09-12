@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import logo from '../Images/logo-udemy.svg';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -17,7 +17,7 @@ const LNavbar = () => {
     const { profile } = useContext(GlobalContext)
     const logout = async () => {
         try {
-            const response = await UserLogout()
+            await UserLogout()
             Cookies.remove("sessionid")
             Cookies.remove("username")
             window.location.href = "/join/login"
@@ -90,7 +90,7 @@ const LNavbar = () => {
                             <div className='me-4'><Link className='text-dark' to={"/cart"}><FiShoppingCart size={20} /></Link> </div>
                             <div className="btn-group dropstart">
                                 <button className="user-avatar dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {profile && <Image src={`http://127.0.0.1:8000/` + profile.photo} className="rounded-circle shadow-4"
+                                    {profile && <Image src={`https://udemyclone-api.herokuapp.com` + profile.photo} className="rounded-circle shadow-4"
                                         width={48} height={48} alt="Avatar" />
                                     }
                                 </button>
@@ -98,7 +98,7 @@ const LNavbar = () => {
                                     <li>
                                         <div className='d-flex p-2'>
                                             <div>
-                                                {profile && <Image src={`http://127.0.0.1:8000/` + profile.photo} className="rounded-circle shadow-4"
+                                                {profile && <Image src={`https://udemyclone-api.herokuapp.com` + profile.photo} className="rounded-circle shadow-4"
                                                     height={48} width={48} alt="Avatar" />
                                                 }
                                             </div>

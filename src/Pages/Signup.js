@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import * as Yup from 'yup';
 import { UserSignup } from '../Services/UserService';
-import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie'
+
 const SignupSchema = Yup.object().shape({
     username: Yup.string().min(2, 'İsim çok kısa!').required('Bu alan zorunludur !'),
     email: Yup.string().email('Email formatına uygun değil !').required('Bu alan zorunludur !'),
@@ -15,7 +15,6 @@ const SignupSchema = Yup.object().shape({
 
 const Signup = () => {
     const [error, setError] = useState()
-    let navigate = useNavigate();
 
     const Register = async (user) => {
         try {
@@ -24,11 +23,9 @@ const Signup = () => {
             Cookies.set('username', user.username)
             window.location.href = "/"
         } catch (error) {
-            console.log(error)
             setError(error)
         }
     }
-
     const formik = useFormik({
         initialValues: {
             username: '',
@@ -61,8 +58,8 @@ const Signup = () => {
                             {formik.errors.username && formik.touched.username ? (
                                 <div className='text-danger'>{formik.errors.username}</div>
                             ) : null}
-
                         </div>
+
                         <div className='input-group'>
                             <input
                                 className='form-item'
@@ -72,7 +69,6 @@ const Signup = () => {
                                 type="email"
                                 onChange={formik.handleChange}
                                 value={formik.values.email}
-
                             />
                             {formik.errors.email && formik.touched.email ? (
                                 <div className='text-danger'>{formik.errors.email}</div>

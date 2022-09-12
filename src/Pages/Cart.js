@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Card, Col, Container, Row } from 'react-bootstrap'
 import ReactStars from 'react-rating-stars-component'
 import '../css/Cart.css'
@@ -40,10 +40,10 @@ const Cart = () => {
                                         </Card.Body>
                                         <div className='me-auto d-flex p-3 text-end'>
                                             <div className='d-flex flex-column'>
-                                                <a href='#'>
+                                                <a href='/#'>
                                                     Kaldır
                                                 </a>
-                                                <a href='#'>
+                                                <a href='/#'>
                                                     İstek Listesine Taşı
                                                 </a>
                                             </div>

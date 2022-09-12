@@ -2,7 +2,6 @@ import React from "react";
 import { Col, Container, Form, Image, Row } from 'react-bootstrap'
 import '../css/Checkout.css'
 import { BsCreditCardFill } from 'react-icons/bs'
-import Cookies from 'js-cookie'
 import { BuyACourse } from '../Services/CourseService'
 import { toast } from "react-toastify";
 import { GlobalContext, useContext } from '../Context/MainContext'
@@ -19,22 +18,21 @@ const CompleteThePaymentSchema = Yup.object().shape({
 });
 
 const Checkout = () => {
-    const { cart, addToCart } = useContext(GlobalContext)
+    const { cart } = useContext(GlobalContext)
 
     const CompleteThePayment = async () => {
         try {
-            const response = await BuyACourse(cart)
+            await BuyACourse(cart)
             toast.success('Satın alma başarıyla tamamlandı.', {
-                position: toast.POSITION.BOTTOM_RIGHT,
-                autoClose: 3000,
-                hideProgressBar: true,
-                theme: 'colored'
+                position: toast.POSITION.BOTTOM_RIGHT, autoClose: 3000, theme: 'colored'
             });
             setTimeout(() => {
                 window.location.href = "/my-courses/learning"
             }, 1000);
         } catch (error) {
-            console.log(error)
+            toast.error('Hata oluştu ! ' + error.request.response, {
+                position: toast.POSITION.BOTTOM_RIGHT, autoClose: 3000, theme: 'colored'
+            });
         }
     }
 

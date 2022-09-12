@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import InstructorPagesNavbarSidebar from '../../Layouts/InstructorPagesNavbarSidebar'
 import '../../css/InstructorProfile.css'
 import { Link } from 'react-router-dom'
@@ -6,10 +6,10 @@ import { Col, Row } from 'react-bootstrap'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { useFormik } from 'formik';
-import { GetUserProfileInformation, UpdateUserProfile } from '../../Services/UserService'
-import Cookies from "js-cookie";
+import { UpdateUserProfile } from '../../Services/UserService'
 import { GlobalContext, useContext } from '../../Context/MainContext'
 import { toast } from "react-toastify";
+
 const BasicInformation = () => {
     const { profile } = useContext(GlobalContext)
 
@@ -27,26 +27,23 @@ const BasicInformation = () => {
             youtube: '',
         },
         onSubmit: async (values) => {
-            FormValidate(profile, values)
-            console.log(profile.user)
+            FormValuesControl(profile, values)
             try {
-                const response = await UpdateUserProfile(profile)
+                await UpdateUserProfile(profile)
                 toast.success('Değişiklikler başarıyla kaydedildi.', {
-                    position: toast.POSITION.BOTTOM_RIGHT,
-                    autoClose: 3000,
-                    hideProgressBar: true,
-                    theme: 'colored'
+                    position: toast.POSITION.BOTTOM_RIGHT, theme: 'colored'
                 });
             } catch (error) {
-                console.log(error)
+                toast.error('Hata oluştu ! ' + error.request.response, {
+                    position: toast.POSITION.BOTTOM_RIGHT, autoClose: 3000, theme: 'colored'
+                });
             }
         },
     });
-    const FormValidate = (profile, values) => {
+    const FormValuesControl = (profile, values) => {
         for (let key in values) {
-            if (values[key] != "") {
+            if (values[key] !== "")
                 profile[key] = values[key]
-            }
         }
     }
     return (
@@ -170,7 +167,6 @@ const BasicInformation = () => {
                                                 onChange={formik.handleChange} defaultValue={profile.linkedin}
                                                 className="user-profile-input user-name form-control" name='linkedin' id='linkedin' aria-describedby="basic-addon3" />
                                         </div>
-
                                     </div>
 
                                     <div className="user-profile-input-group mb-3">
@@ -185,10 +181,8 @@ const BasicInformation = () => {
                                 </form>
                             </Col>
                         </Row>
-
                     </div>
                 </div>}
-
         </div >
     )
 }

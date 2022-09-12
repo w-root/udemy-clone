@@ -16,7 +16,6 @@ const LearningContent = () => {
     const GetUserCourses = async () => {
         try {
             const response = await GetCurrentUserStudentCourses()
-            console.log(response.data)
             setCourses(response.data)
         } catch (error) {
             console.log(error)
@@ -91,7 +90,7 @@ const LearningContent = () => {
                         {courses && courses.map(c => {
                             return <Card key={c.id} className='me-2' style={{ width: '15rem' }}>
                                 <div className='position-relative'>
-                                    <Card.Img className='course-img-top' width={240} variant="top" src={c.image} />
+                                    <Card.Img className='course-img-top' width={230} height={245} variant="top" src={c.image} />
                                     <button className='dropdown-trigger-button'>
                                         <HiOutlineDotsVertical />
                                     </button>
@@ -113,13 +112,13 @@ const LearningContent = () => {
                             </Card>
                         })}
 
-                        {courses.length == 0 &&
+                        {courses.length === 0 &&
                             <div style={{ marginTop: "7rem", marginBottom: "7rem" }} className='mx-auto  text-center'>
                                 <div className='fw-bold fs-5'>
                                     204.000 kurstan daha fazlasına erişim elde ederek hemen <br /> öğrenmeye başlayın.
                                 </div>
                                 <div>
-                                    Bir kursa kaydolduğunuzda kurs burada görünür. <a style={{ color: "#5624d0" }} href='#'>Hemen göz atın.</a>
+                                    Bir kursa kaydolduğunuzda kurs burada görünür. <a style={{ color: "#5624d0" }} href='/#'>Hemen göz atın.</a>
                                 </div>
                             </div>
                         }

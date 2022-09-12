@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import '../css/CreateCoursePage.css'
 import { NavLink } from 'react-router-dom';
 import { Image, } from 'react-bootstrap'
@@ -6,8 +6,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { useFormik } from 'formik';
 import { CreateCourse } from '../Services/CourseService'
-import { FetchAllCategories } from '../Services/CategoryService'
 import { GlobalContext, useContext } from '../Context/MainContext'
+import { toast } from 'react-toastify';
 
 const CreateCoursePage = () => {
     const { categories } = useContext(GlobalContext)
@@ -19,11 +19,12 @@ const CreateCoursePage = () => {
         },
         onSubmit: async (values) => {
             try {
-                const response = await CreateCourse(values)
-                console.log(response)
+                await CreateCourse(values)
                 window.location.href = "/instructor/courses"
             } catch (error) {
-                console.log(error)
+                toast.error('Hata oluştu ! ' + error.request.response, {
+                    position: toast.POSITION.BOTTOM_RIGHT, autoClose: 3000, theme: 'colored'
+                });
             }
         },
     });

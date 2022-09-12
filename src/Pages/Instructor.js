@@ -72,7 +72,7 @@ const Instructor = () => {
                         return <div key={c.id}>
                             <Container className='user-instructor-courses'>
                                 <div>
-                                    <Image width={118} src='https://s.udemycdn.com/course/200_H/placeholder.jpg' />
+                                    <Image width={118} height={118} src={c.image || 'https://s.udemycdn.com/course/200_H/placeholder.jpg'} />
                                 </div>
                                 <div className='d-flex flex-column justify-content-between p-3'>
                                     <h6 className='fw-bold fs-6'>{c.title}</h6>

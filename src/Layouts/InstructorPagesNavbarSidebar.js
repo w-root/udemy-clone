@@ -33,7 +33,7 @@ const InstructorPagesNavbarSidebar = () => {
 
                     <div className="btn-group dropstart">
                         <button className="user-avatar dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            {profile && <Image src={`http://127.0.0.1:8000/` + profile.photo} className="rounded-circle shadow-4"
+                            {profile && <Image src={`https://udemyclone-api.herokuapp.com` + profile.photo} className="rounded-circle shadow-4"
                                 width={48} height={48} alt="Avatar" />
                             }
                         </button>
@@ -41,7 +41,7 @@ const InstructorPagesNavbarSidebar = () => {
                             <li>
                                 <div className='d-flex p-2'>
                                     <div>
-                                        {profile && <Image src={`http://127.0.0.1:8000/` + profile.photo} className="rounded-circle shadow-4"
+                                        {profile && <Image src={`https://udemyclone-api.herokuapp.com` + profile.photo} className="rounded-circle shadow-4"
                                             width={48} height={48} alt="Avatar" />
                                         }
                                     </div>
@@ -71,36 +71,36 @@ const InstructorPagesNavbarSidebar = () => {
                 <div className="offcanvas-body">
                     <ul className='instructor-help-list'>
                         <li className='instructor-help-list-item'>
-                            <a href='!#'>
+                            <a href='/instructor/courses#'>
                                 <Image src={logo} sizes={32} height={66} width={100} />
                             </a>
                         </li>
                         <li className='instructor-help-list-item'>
-                            <a href='!#'>
+                            <a href='/instructor/courses#'>
                                 <MdOutlineOndemandVideo size={28} color='white' />
                                 <span>Kurslar</span>
                             </a>
                         </li>
                         <li className='instructor-help-list-item'>
-                            <a href='!#'>
+                            <a href='/instructor/courses#'>
                                 <MdOutlineMessage size={28} color='white' />
                                 <span>İletişim</span>
                             </a>
                         </li>
                         <li className='instructor-help-list-item'>
-                            <a href='!#'>
+                            <a href='/instructor/courses#'>
                                 <IoMdStats size={28} color='white' />
                                 <span>Performans</span>
                             </a>
                         </li>
                         <li className='instructor-help-list-item'>
-                            <a href='!#'>
+                            <a href='/instructor/courses#'>
                                 <BiHelpCircle size={28} color='white' />
                                 <span>Araçlar</span>
                             </a>
                         </li>
                         <li className='instructor-help-list-item'>
-                            <a href='!#'>
+                            <a href='/instructor/courses#'>
                                 <TbTool size={28} color='white' />
                                 <span>Kaynaklar</span>
                             </a>

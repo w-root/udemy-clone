@@ -10,13 +10,14 @@ const CourseManageSideBar = () => {
 
     useEffect(() => {
         setCourseId(location.pathname.split("/")[3])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
         <div className='side-bar'>
             <ul className='list-unstyled'>
                 <li className='side-nav-section'>
-                    <div className='side-nav-section-header'>
+                    <div className='side-nav-section-header fw-bold'>
                         Kursunuzu planlayın
                     </div>
                     <ul className='list-unstyled'>
@@ -42,7 +43,7 @@ const CourseManageSideBar = () => {
                 </li>
 
                 <li className='side-nav-section'>
-                    <div className='side-nav-section-header'>
+                    <div className='side-nav-section-header fw-bold'>
                         İçeriğinizi oluşturun
                     </div>
                     <ul className='list-unstyled'>
@@ -68,7 +69,7 @@ const CourseManageSideBar = () => {
                 </li>
 
                 <li className='side-nav-section'>
-                    <div className='side-nav-section-header'>
+                    <div className='side-nav-section-header fw-bold'>
                         Kursunuzu yayınlayın
                     </div>
                     <ul className='list-unstyled'>

@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { Col, Container, Image, Row } from 'react-bootstrap';
+import React from 'react'
+import { Col, Container, Row } from 'react-bootstrap';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import '../css/Home.css'
 import Course from '../Components/Course';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import { FetchAllCourses, FetchHomePageTabs } from '../Services/CourseService';
 import { GlobalContext, useContext } from '../Context/MainContext'
 
 const responsive = {

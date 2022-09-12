@@ -35,18 +35,18 @@ const Goals = () => {
             try {
                 await UpdateCourse(course)
                 toast.success('Değişiklikleriniz başarıyla kaydedildi.', {
-                    position: toast.POSITION.BOTTOM_RIGHT,
-                    autoClose: 3000,
-                    hideProgressBar: true,
-                    theme: 'colored'
+                    position: toast.POSITION.BOTTOM_RIGHT, autoClose: 3000, theme: 'colored'
                 });
             } catch (error) {
-                console.log(error)
+                toast.error('Hata oluştu ! ' + error.request.response, {
+                    position: toast.POSITION.BOTTOM_RIGHT, autoClose: 3000, theme: 'colored'
+                });
             }
         },
     });
     useEffect(() => {
         GetCourse()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
@@ -60,7 +60,7 @@ const Goals = () => {
                 <div className='goals-form-subtitle'>
                     Aşağıdaki açıklamalar,
                     <span>
-                        <a className='component-link' href='!#'>Kurs Açılış Sayfasında</a>
+                        <a className='component-link' href='/#'>Kurs Açılış Sayfasında</a>
                     </span> görünür olacak ve kursunuzun performansına doğrudan etki edecektir.
                     Bu açıklamalar öğrencilerin, kursun onlara uygun olup olmadığına karar vermelerine yardımcı olur.
                 </div>
@@ -72,7 +72,7 @@ const Goals = () => {
                     <div className='mb-3'>
                         Öğrencilerin, kursunuzu tamamladıktan sonra başarabilecekleri en az 4
                         <span>
-                            <a className='component-link' href='!#'>
+                            <a className='component-link' href='/#'>
                                 öğrenim hedefi veya sonuç
                             </a>
                         </span>
@@ -81,19 +81,19 @@ const Goals = () => {
 
                     <div className='d-flex ' >
                         <form className='w-100' >
-                            <div className='answer-input-group' >
+                            <div className='goals-answer-input-group' >
                                 <input className='learn-goal-input form-control' onChange={formik.handleChange} name='whatyouwilllearn1' id='whatyouwilllearn1'
                                     type="text" placeholder="Örnek: Proje yöneticilerinin rollerini ve sorumluluklarını tanımlayın" />
                             </div>
-                            <div className='answer-input-group' >
+                            <div className='goals-answer-input-group' >
                                 <input className='learn-goal-input form-control' onChange={formik.handleChange} name='whatyouwilllearn2' id='whatyouwilllearn2'
                                     type="text" placeholder="Örnek: Proje zaman çizelgelerini ve bütçeleri hesaplayın" />
                             </div>
-                            <div className='answer-input-group' >
+                            <div className='goals-answer-input-group' >
                                 <input className='learn-goal-input form-control' onChange={formik.handleChange} name='whatyouwilllearn3' id='whatyouwilllearn3'
                                     type="text" placeholder="Örnek: Proje risklerini tanımlayın ve yönetin" />
                             </div>
-                            <div className='answer-input-group' >
+                            <div className='goals-answer-input-group' >
                                 <input className='learn-goal-input form-control' onChange={formik.handleChange} name='whatyouwilllearn4' id='whatyouwilllearn4'
                                     type="text" placeholder="Örnek: Konsept aşamasından tamamlanana kadar bir projeyi yönetmek için bir örnek olay çalışması tamamlayın" />
                             </div>
@@ -111,7 +111,7 @@ const Goals = () => {
                             Hiçbir gereksinim yoksa bunu, yeni başlayanlar için bariyeri düşürmeye yönelik bir fırsat olarak kullanın.
                         </p>
 
-                        <div className='answer-input-group' >
+                        <div className='goals-answer-input-group' >
                             <input className='learn-goal-input form-control' type="text" placeholder="Örnek: Programlama deneyimi gerekmez. Bilmeniz gereken her şeyi öğreneceksiniz" />
                         </div>
                     </div>
@@ -123,11 +123,11 @@ const Goals = () => {
                         </h2>
 
                         <p>
-                            Kurs içeriğinizi değerli bulacak <span><a className='component-link' href='!#'>hedef öğrenciler</a></span> için net bir açıklama girin. <br />
+                            Kurs içeriğinizi değerli bulacak <span><a className='component-link' href='/#'>hedef öğrenciler</a></span> için net bir açıklama girin. <br />
                             Bu, doğru öğrencileri kursunuza çekmenize yardımcı olur.
                         </p>
 
-                        <div className='answer-input-group' >
+                        <div className='goals-answer-input-group' >
                             <input className='learn-goal-input form-control' type="text" placeholder="Örneğin: Veri bilimine meraklı, başlangıç düzeyindeki Python geliştiricileri" />
                         </div>
                     </div>

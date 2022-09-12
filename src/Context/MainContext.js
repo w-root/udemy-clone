@@ -1,5 +1,4 @@
 import React, { createContext, useEffect, useState, useContext } from 'react'
-import Cookies from 'js-cookie'
 import { GetAllCategories, GetAllCourses, GetAllTabs, GetInformations, addToCart } from './Actions'
 
 const GlobalContext = createContext()
@@ -10,14 +9,13 @@ export const MainProvider = ({ children }) => {
     const [courses, setCourses] = useState([])
     const [tabs, setTabs] = useState([])
 
-    const [cart, setCart] = useState([])
+    const [cart] = useState([])
 
     useEffect(() => {
         GetInformations(setProfile)
         GetAllCategories(setCategories)
         GetAllCourses(setCourses)
         GetAllTabs(setTabs)
-        console.log(cart)
     }, [])
 
     const value = {
@@ -35,5 +33,4 @@ export const MainProvider = ({ children }) => {
         </GlobalContext.Provider>
     )
 }
-
 export { GlobalContext, useContext }

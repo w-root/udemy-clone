@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import InstructorPagesNavbarSidebar from '../../Layouts/InstructorPagesNavbarSidebar'
 import '../../css/InstructorProfile.css'
 import { Link } from 'react-router-dom'
@@ -17,15 +17,14 @@ const EditPhoto = () => {
             try {
                 let form_data = new FormData();
                 form_data.append('photo', photo, photo.name);
-                const response = await UpdateUserProfilePhoto(form_data)
+                await UpdateUserProfilePhoto(form_data)
                 toast.success('Değişiklikler başarıyla kaydedildi.', {
-                    position: toast.POSITION.BOTTOM_RIGHT,
-                    autoClose: 3000,
-                    hideProgressBar: true,
-                    theme: 'colored'
+                    position: toast.POSITION.BOTTOM_RIGHT, autoClose: 3000, theme: 'colored'
                 });
             } catch (error) {
-                console.log(error)
+                toast.error('Hata oluştu ! ' + error.request.response, {
+                    position: toast.POSITION.BOTTOM_RIGHT, autoClose: 3000, theme: 'colored'
+                });
             }
         },
         validateOnChange: (e) => {

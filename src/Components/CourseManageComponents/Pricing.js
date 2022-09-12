@@ -23,24 +23,22 @@ const Pricing = () => {
             price: 0
         },
         onSubmit: async (values) => {
-
-            console.log(parseFloat(values.price).toFixed(2))
             course.price = parseFloat(values.price)
             try {
-                const response = await UpdateCourse(course)
+                await UpdateCourse(course)
                 toast.success('Değişiklikleriniz başarıyla kaydedildi.', {
-                    position: toast.POSITION.BOTTOM_RIGHT,
-                    autoClose: 3000,
-                    hideProgressBar: true,
-                    theme: 'colored'
+                    position: toast.POSITION.BOTTOM_RIGHT, autoClose: 3000, theme: 'colored'
                 });
             } catch (error) {
-                console.log(error)
+                toast.error('Hata oluştu ! ' + error.request.response, {
+                    position: toast.POSITION.BOTTOM_RIGHT, autoClose: 3000, theme: 'colored'
+                });
             }
         },
     });
     useEffect(() => {
         GetCourse()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

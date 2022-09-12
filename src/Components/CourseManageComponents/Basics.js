@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Col, Image, Row } from 'react-bootstrap'
 import '../../css/CourseManageComponents.css'
+import { Col, Image, Row } from 'react-bootstrap'
 import { Field, Form, Formik, useFormik } from 'formik';
 import { FetchCourseDetailById, UpdateCourse, UpdateCourseImage } from '../../Services/CourseService'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { FetchAllCategories } from '../../Services/CategoryService';
 import { useParams } from "react-router-dom";
 import { GlobalContext, useContext } from '../../Context/MainContext'
 import { toast } from 'react-toastify';
@@ -13,9 +12,7 @@ import { toast } from 'react-toastify';
 const Basics = () => {
     const { categories } = useContext(GlobalContext)
     const { id } = useParams()
-
     const [course, setCourse] = useState({})
-    const [image, setImage] = useState()
 
     const GetCourse = async () => {
         try {
@@ -25,9 +22,9 @@ const Basics = () => {
             console.log(error)
         }
     }
-
     useEffect(() => {
         GetCourse()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const formik = useFormik({
@@ -35,31 +32,29 @@ const Basics = () => {
             title: '',
             subtitle: '',
             description: '',
-            category: 0
+            category: 1
         },
         onSubmit: async (values) => {
-            FormValidate(course, values)
-            console.log(course)
+            FormValuesControl(course, values)
             try {
                 await UpdateCourse(course)
                 toast.success('Değişiklikleriniz başarıyla kaydedildi.', {
-                    position: toast.POSITION.BOTTOM_RIGHT,
-                    autoClose: 3000,
-                    hideProgressBar: true,
-                    theme: 'colored'
+                    position: toast.POSITION.BOTTOM_RIGHT, autoClose: 3000, theme: 'colored'
                 });
             } catch (error) {
-                console.log(error)
+                toast.error('Hata oluştu ! ' + error.request.response, {
+                    position: toast.POSITION.BOTTOM_RIGHT, autoClose: 3000, theme: 'colored'
+                });
             }
         },
     });
-    const FormValidate = (course, values) => {
+    const FormValuesControl = (course, values) => {
         for (let key in values) {
-            if (values[key] != "") {
+            if (values[key] !== "")
                 course[key] = values[key]
-            }
         }
     }
+
     return (
         <div className='app-component'>
             <div className='app-component-header'>
@@ -127,7 +122,6 @@ const Basics = () => {
                                 return <option key={c.id} value={c.id}>{c.name}</option>
                             })}
                         </select>
-
                     </div>
 
                     <div className='my-5'>
@@ -147,7 +141,7 @@ const Basics = () => {
                     <div >
                         <Row>
                             <Col md={6}>
-                                <Image id='course-preview-image' className='course-basics-image' src={"http://127.0.0.1:8000/" + course.image || 'https://s.udemycdn.com/course/750x422/placeholder.jpg'} />
+                                <Image id='course-preview-image' className='course-basics-image' src={"https://udemyclone-api.herokuapp.com" + course.image || 'https://s.udemycdn.com/course/750x422/placeholder.jpg'} />
                             </Col>
                             <Col md={6}>
                                 <p>
@@ -159,7 +153,6 @@ const Basics = () => {
                                 <Formik
                                     initialValues={{ image: '' }}
                                     validateOnChange={e => {
-                                        setImage(e.target.files[0])
                                         var reader = new FileReader();
                                         reader.onload = function () { document.getElementById("course-preview-image").src = reader.result; }
                                         if (e.target.files[0]) { reader.readAsDataURL(e.target.files[0]); }
@@ -167,8 +160,7 @@ const Basics = () => {
                                         try {
                                             let form_data = new FormData();
                                             form_data.append('image', e.target.files[0], e.target.files[0].name);
-                                            const response = UpdateCourseImage(form_data, id)
-                                            console.log(response)
+                                            UpdateCourseImage(form_data, id)
                                         } catch (error) { console.log(error) }
                                     }}>
                                     {props => (<Form>

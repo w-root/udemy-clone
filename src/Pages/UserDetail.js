@@ -5,16 +5,12 @@ import { AiOutlineDisconnect, AiFillLinkedin, AiFillYoutube } from 'react-icons/
 import { BsTwitter } from 'react-icons/bs'
 import { MdFacebook } from 'react-icons/md'
 import { Link } from 'react-router-dom'
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { useFormik } from 'formik';
 import { GetUserProfileInformation } from '../Services/UserService'
-import Cookies from "js-cookie";
 import { useParams } from "react-router-dom";
 import parse from "html-react-parser"
 import { GetUserInstructorCourses } from '../Services/CourseService'
-import Course from '../Components/Course';
 import ReactStars from "react-rating-stars-component";
+
 const UserDetail = () => {
     const { username } = useParams()
     const [profile, setProfile] = useState()
@@ -32,7 +28,6 @@ const UserDetail = () => {
     const GetUserCourses = async () => {
         try {
             const response = await GetUserInstructorCourses(username)
-            console.log(response.data)
             setCourses(response.data)
         } catch (error) {
             console.log(error)
@@ -41,6 +36,7 @@ const UserDetail = () => {
     useEffect(() => {
         GetInformations()
         GetUserCourses()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
@@ -52,11 +48,9 @@ const UserDetail = () => {
                             <div>
                                 EĞİTMEN
                             </div>
-
                             <h1>
                                 {`${profile.firstname} ${profile.lastname}`}
                             </h1>
-
                             <div>
                                 {profile.title}
                             </div>
@@ -73,7 +67,6 @@ const UserDetail = () => {
 
                                 </div>
                             </div>
-
                             <div>
                                 <div className='heading heading-comments'>
                                     Yorumlar
@@ -82,25 +75,20 @@ const UserDetail = () => {
                                     6.217
                                 </div>
                             </div>
-
                         </div>
-
                         <div className='about-me mb-5'>
-
                             <h3>
                                 Hakkımda
                             </h3>
                             <div>
                                 {profile.bio && parse(profile.bio)}
                             </div>
-
                         </div>
-
                     </Col>
                     <Col md={3}>
                         <div className='personal-image-and-social-links ms-5'>
                             <div className='personal-image'>
-                                <Image src={`http://127.0.0.1:8000/` + profile.photo} roundedCircle />
+                                <Image height={200} width={200} src={`http://127.0.0.1:8000/` + profile.photo} roundedCircle />
                             </div>
 
                             <div className='personal-social-links'>
@@ -121,7 +109,6 @@ const UserDetail = () => {
                                         <AiFillYoutube /> <span>Youtube</span>
                                     </Link>
                                 </div>
-
                             </div>
                         </div>
                     </Col>
