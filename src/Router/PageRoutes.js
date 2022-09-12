@@ -9,14 +9,15 @@ import Cart from "../Pages/Cart";
 import Checkout from "../Pages/Checkout";
 import UserDetail from "../Pages/UserDetail";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
+import AuthProtectedRoute from "./ProtectedRoute/AuthProtectedRoute";
 
 const PageRoutes = () => {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/:slug" element={<CourseDetail />} />
-            <Route path="/join/login" element={<ProtectedRoute Page={<Login />} />} />
-            <Route path="/join/signup" element={<ProtectedRoute Page={<Signup />} />} />
+            <Route path="/join/login" element={<AuthProtectedRoute Page={<Login />} />} />
+            <Route path="/join/signup" element={<AuthProtectedRoute Page={<Signup />} />} />
             <Route path="/my-courses/learning" element={<ProtectedRoute Page={<LearningContent />} />} />
             <Route path="/cart" element={<ProtectedRoute Page={<Cart />} />} />
             <Route path="/cart/checkout" element={<ProtectedRoute Page={<Checkout />} />} />

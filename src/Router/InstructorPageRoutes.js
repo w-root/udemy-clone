@@ -1,6 +1,5 @@
 import React from 'react'
 import { useLocation } from "react-router-dom"
-import CourseManageRoutes from "./CourseManageRoutes";
 import InstructorRoutes from "./InstructorRoutes";
 import CourseManagePageNavbarSidebar from "../Layouts/CourseManagePageNavbarSidebar";
 
