@@ -1,7 +1,7 @@
 
 # ReactJS udemy clone
 
-# Technology
+### Technology
 
 * Javascript 
 * ReactJS 
