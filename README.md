@@ -1,6 +1,12 @@
 
 # ReactJS udemy clone
 
+# Technology
+
+* Javascript 
+* ReactJS 
+* React context api 
+
 Here is live demo : [udemyclone](https://udemy-clonee.netlify.app/)
 ### Advanced Configuration
 - [ ] Frontend - React
