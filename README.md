@@ -1,74 +1,59 @@
-# Getting Started with Create React App
+# React udemy clone app
+Here is live demo : [live demo](https://udemyyclonee.netlify.app/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Specifications:
+* Made with React and Python Django 
+* Its offering many functions of udemy.
+* **Most handwritten** css.
 
-## Available Scripts
+- [ ] Frontend
+    - [x] React context api
+    - [x] React hooks
+    - [ ] Responsive design
+    - [x] Home page
+    - [x] Register Page
+    - [x] Login page
+    - [x] Sidebar
+    - [ ] Responsive Sidebar
+    - [x] Toast notification messages
+    - [ ] All components responsive
+    - [x] Course model
+    - [x] Category model
+    - [x] Tab model
+    - [x] Profile page
+    - [x] Course detail page
+    - [x] Add course page
+    - [x] Update course page  
+    - [ ] Notifications page
+    - [x] Child pages menu for some parent pages
+    - [x] Profile component for navbar
+    - [ ] Add comment
+    - [x] Toggle action list 
+    - [x] Action button component   
+    - [ ] Nested comments 
+    - [ ] Search
+    - [ ] Shortcuts
+    - [x] Update profile image
+    - [x] Add course image
+    - [x] Update course image
+    - [x] Routing
+        - [x] Route guards
+        - [ ] Define all routes
+        - [ ] Define all child routes
+    - [x] Update profile
+    - [x] Backend Integration
+    - [ ] Loading spinner
+    - [x] Cart actions
+    - [x] Buy course  
+#------------------------------------------------------------------------------------------------------------------------------------------------# <br/> 
+![Screenshot_1](https://user-images.githubusercontent.com/83351907/216833009-095da1f1-3754-42dd-9398-c534d8d99f4c.png)
+![Screenshot_3](https://user-images.githubusercontent.com/83351907/216833012-687c8592-95b6-4191-97a5-03077438f946.png)
+![Screenshot_4](https://user-images.githubusercontent.com/83351907/216833014-9fce6c4f-28c3-4406-9f82-cc44cb2fc8f1.png)
+![Screenshot_5](https://user-images.githubusercontent.com/83351907/216833017-ddbe700e-0443-47cd-9354-1a7f47420bc9.png)
+![Screenshot_6](https://user-images.githubusercontent.com/83351907/216833018-ef8a166c-f696-4f0f-a8ad-2dbddd92453e.png)
+![Screenshot_7](https://user-images.githubusercontent.com/83351907/216833019-b6c34b7a-5608-41cf-ad25-1e8070c5174b.png)
+![Screenshot_8](https://user-images.githubusercontent.com/83351907/216833020-73b302ce-b7cc-4b83-8e11-9fdec06d9e90.png)
+![Screenshot_9](https://user-images.githubusercontent.com/83351907/216833021-d197117a-88a2-4b68-9920-709f8475bfab.png)
+![Screenshot_10](https://user-images.githubusercontent.com/83351907/216833023-7758955c-62c0-4f82-998b-eb78091909eb.png)
 
-In the project directory, you can run:
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# udemy-clone" 
-![Screenshot_3](https://user-images.githubusercontent.com/83351907/186199298-ac44411f-c516-4b2c-b45a-18e168a06967.png)
-![Screenshot_1](https://user-images.githubusercontent.com/83351907/186199310-f3c982b6-1325-401f-a57c-4fc4142da2b5.png)
-![Screenshot_2](https://user-images.githubusercontent.com/83351907/186199316-f6953a10-1714-4e3f-b971-362ea3821144.png)
