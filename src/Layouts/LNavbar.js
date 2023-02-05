@@ -90,17 +90,13 @@ const LNavbar = () => {
                             <div className='me-4'><Link className='text-dark' to={"/cart"}><FiShoppingCart size={20} /></Link> </div>
                             <div className="btn-group dropstart">
                                 <button className="user-avatar dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {profile && <Image src={`https://udemyclone-api.herokuapp.com` + profile.photo} className="rounded-circle shadow-4"
-                                        width={48} height={48} alt="Avatar" />
-                                    }
+                                    {profile && <Image src={"https://qirynyq.pythonanywhere.com" + profile.photo} height={48} width={48} alt="Avatar" roundedCircle />}
                                 </button>
                                 <ul className="dropdown-menu" >
                                     <li>
                                         <div className='d-flex p-2'>
                                             <div>
-                                                {profile && <Image src={`https://udemyclone-api.herokuapp.com` + profile.photo} className="rounded-circle shadow-4"
-                                                    height={48} width={48} alt="Avatar" />
-                                                }
+                                                {profile && <Image src={"https://qirynyq.pythonanywhere.com" + profile.photo} height={48} width={48} alt="Avatar" roundedCircle />}
                                             </div>
                                             <div className='ms-2'>
                                                 <div>

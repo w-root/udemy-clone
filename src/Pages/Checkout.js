@@ -4,7 +4,6 @@ import '../css/Checkout.css'
 import { BsCreditCardFill } from 'react-icons/bs'
 import { BuyACourse } from '../Services/CourseService'
 import { toast } from "react-toastify";
-import { GlobalContext, useContext } from '../Context/MainContext'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -18,7 +17,7 @@ const CompleteThePaymentSchema = Yup.object().shape({
 });
 
 const Checkout = () => {
-    const { cart } = useContext(GlobalContext)
+    const cart = JSON.parse(localStorage.getItem("cart"))
 
     const CompleteThePayment = async () => {
         try {
@@ -26,6 +25,7 @@ const Checkout = () => {
             toast.success('Satın alma başarıyla tamamlandı.', {
                 position: toast.POSITION.BOTTOM_RIGHT, autoClose: 3000, theme: 'colored'
             });
+            localStorage.clear()
             setTimeout(() => {
                 window.location.href = "/my-courses/learning"
             }, 1000);

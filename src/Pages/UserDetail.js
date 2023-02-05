@@ -88,26 +88,26 @@ const UserDetail = () => {
                     <Col md={3}>
                         <div className='personal-image-and-social-links ms-5'>
                             <div className='personal-image'>
-                                <Image height={200} width={200} src={`http://127.0.0.1:8000/` + profile.photo} roundedCircle />
+                                <Image height={200} width={200} src={`https://qirynyq.pythonanywhere.com` + profile.photo} roundedCircle />
                             </div>
 
                             <div className='personal-social-links'>
                                 <div>
-                                    <Link to={`${profile.website}`} className='personal-link personal-link-website'>
+                                    <a href={profile.website} className='personal-link personal-link-website'>
                                         <AiOutlineDisconnect /> <span>Web sitesi</span>
-                                    </Link>
-                                    <Link to={`https://twitter.com/${profile.twitter}`} className='personal-link personal-link-website'>
+                                    </a>
+                                    <a href={`https://twitter.com/${profile.twitter}`} className='personal-link personal-link-website'>
                                         <BsTwitter /> <span>Twitter</span>
-                                    </Link>
-                                    <Link to={`https://www.facebook.com/${profile.facebook}`} className='personal-link personal-link-website'>
+                                    </a>
+                                    <a href={`https://www.facebook.com/${profile.facebook}`} className='personal-link personal-link-website'>
                                         <MdFacebook /> <span>Facebook</span>
-                                    </Link>
-                                    <Link to={`https://www.linkedin.com/feed/${profile.linkedin}`} className='personal-link personal-link-website'>
+                                    </a>
+                                    <a href={`https://www.linkedin.com/in/${profile.linkedin}`} className='personal-link personal-link-website'>
                                         <AiFillLinkedin /> <span>Linkedin</span>
-                                    </Link>
-                                    <Link to={`https://www.youtube.com/${profile.youtube}`} className='personal-link personal-link-website'>
+                                    </a>
+                                    <a href={`https://www.youtube.com/${profile.youtube}`} className='personal-link personal-link-website'>
                                         <AiFillYoutube /> <span>Youtube</span>
-                                    </Link>
+                                    </a>
                                 </div>
                             </div>
                         </div>

@@ -16,6 +16,11 @@ export const MainProvider = ({ children }) => {
         GetAllCategories(setCategories)
         GetAllCourses(setCourses)
         GetAllTabs(setTabs)
+        if (localStorage.getItem("cart") == null) {
+            localStorage.setItem("cart", JSON.stringify(cart))
+
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const value = {

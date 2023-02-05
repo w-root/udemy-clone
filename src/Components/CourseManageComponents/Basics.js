@@ -141,7 +141,7 @@ const Basics = () => {
                     <div >
                         <Row>
                             <Col md={6}>
-                                <Image id='course-preview-image' className='course-basics-image' src={"https://udemyclone-api.herokuapp.com" + course.image || 'https://s.udemycdn.com/course/750x422/placeholder.jpg'} />
+                                <Image id='course-preview-image' className='course-basics-image' src={"https://qirynyq.pythonanywhere.com" + course.image || 'https://s.udemycdn.com/course/750x422/placeholder.jpg'} />
                             </Col>
                             <Col md={6}>
                                 <p>

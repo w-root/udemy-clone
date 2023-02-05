@@ -21,8 +21,8 @@ import Cookies from "js-cookie";
 const CourseDetail = () => {
     const { slug } = useParams()
     const [course, setCourse] = useState(null)
-
-    const { cart, addToCart } = useContext(GlobalContext)
+    const cart = JSON.parse(localStorage.getItem("cart"))
+    const { addToCart } = useContext(GlobalContext)
 
     const GetCourseDetail = async () => {
         try {

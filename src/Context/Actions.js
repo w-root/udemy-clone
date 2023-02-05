@@ -48,12 +48,13 @@ export const addToCart = (cart, course) => {
             theme: 'colored'
         })
     } else {
+        cart.push(course)
         toast.success('Sepete Eklendi.', {
             position: toast.POSITION.BOTTOM_RIGHT,
             autoClose: 3000,
             hideProgressBar: true,
             theme: 'colored'
         })
-        cart.push(course)
     }
+    localStorage.setItem("cart", JSON.stringify(cart))
 }

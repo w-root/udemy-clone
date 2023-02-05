@@ -3,11 +3,9 @@ import { Card, Col, Container, Row } from 'react-bootstrap'
 import ReactStars from 'react-rating-stars-component'
 import '../css/Cart.css'
 import { Link } from 'react-router-dom';
-import { GlobalContext, useContext } from '../Context/MainContext'
 
 const Cart = () => {
-    const { cart } = useContext(GlobalContext)
-
+    const cart = JSON.parse(localStorage.getItem("cart"))
     return (
         <div className='component-cart'>
             <Container>
@@ -20,7 +18,7 @@ const Cart = () => {
                     <Row>
                         <Col md={8}>
                             <div className='cart-items'>
-                                {cart.map(c => {
+                                {cart && cart.map(c => {
                                     return <Card key={c.id} className='cart-item' >
                                         <Card.Img className='rounded-0'
                                             variant="top" src={c.image} />
@@ -64,7 +62,7 @@ const Cart = () => {
                                         Toplam :
                                     </div>
                                     <h1 className='fw-bold'>
-                                        ₺{cart.length > 0 &&
+                                        ₺{cart && cart.length > 0 &&
                                             cart.reduce((acc, obj) => acc + parseFloat(obj.price), 0.00)
                                         }
                                     </h1>

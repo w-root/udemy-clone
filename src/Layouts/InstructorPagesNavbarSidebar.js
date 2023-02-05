@@ -33,17 +33,15 @@ const InstructorPagesNavbarSidebar = () => {
 
                     <div className="btn-group dropstart">
                         <button className="user-avatar dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            {profile && <Image src={`https://udemyclone-api.herokuapp.com` + profile.photo} className="rounded-circle shadow-4"
-                                width={48} height={48} alt="Avatar" />
-                            }
+                            {profile && <Image src={"https://qirynyq.pythonanywhere.com" + profile.photo} height={48} width={48} roundedCircle alt="Avatar" />}
+
                         </button>
                         <ul className="dropdown-menu" >
                             <li>
                                 <div className='d-flex p-2'>
                                     <div>
-                                        {profile && <Image src={`https://udemyclone-api.herokuapp.com` + profile.photo} className="rounded-circle shadow-4"
-                                            width={48} height={48} alt="Avatar" />
-                                        }
+                                        {profile && <Image src={"https://qirynyq.pythonanywhere.com" + profile.photo} height={48} width={48} roundedCircle alt="Avatar" />}
+
                                     </div>
                                     <div className='ms-2'>
                                         <div>
